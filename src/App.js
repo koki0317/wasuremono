@@ -1,15 +1,7 @@
-import * as React from "react";
-import Button from "@mui/material/Button";
+import Top from "./pages/Top";
 
 const App = () => {
-  return (
-    <>
-      <Button variant="contained" color="secondary">
-        Hello World
-      </Button>
-      <h1>HEY</h1>
-    </>
-  );
+  return <Top />;
 };
 
 export default App;
