@@ -1,38 +1,26 @@
-import React, { useState } from "react";
+import { AddCircleOutlineOutlined } from "@mui/icons-material";
+import React from "react";
 import styled from "styled-components";
 
+const Container = styled.div``;
 const Form = styled.form``;
 const Input = styled.input``;
 const Button = styled.button``;
-const ListForm = (props) => {
-  const [input, setInput] = useState("");
 
-  const handleChange = (e) => {
-    setInput(e.target.value);
-  };
-
+const ListForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    props.onSubmit({
-      id: Math.floor(Math.random() * 10000),
-      text: input,
-    });
-    setInput("");
+    console.log("a");
   };
   return (
-    <>
+    <Container>
       <Form onSubmit={handleSubmit}>
-        <Input
-          type="text"
-          placeholder="Add a list"
-          value={input}
-          name="text"
-          onChange={handleChange}
-        />
-        <Button>Add an item</Button>
+        <Input type="text" placeholder=""></Input>
+        <Button>
+          <AddCircleOutlineOutlined />
+        </Button>
       </Form>
-    </>
+    </Container>
   );
 };
 

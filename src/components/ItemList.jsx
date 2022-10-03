@@ -1,22 +1,37 @@
-import React, { useState } from "react";
+import {
+  CheckCircleOutlined,
+  RemoveCircleOutlineOutlined,
+} from "@mui/icons-material";
+import React from "react";
 import styled from "styled-components";
-import ListForm from "./ListForm";
 
 const Container = styled.div``;
+const Items = styled.div``;
+const Item = styled.div``;
+const Text = styled.div``;
+const Span = styled.span``;
+const Icons = styled.div``;
+const ButtonCheck = styled.button``;
+const ButtonRemove = styled.button``;
+
 const ItemList = () => {
-  const [items, setItems] = useState([]);
-
-  const addItem = (item) => {
-    console.log(item);
-    const newItems = [item, ...items];
-
-    setItems(newItems);
-  };
-
   return (
     <Container>
-      <h1>Hey</h1>
-      <ListForm onSubmit={addItem} />
+      <Items>
+        <Item>
+          <Text>
+            <Span>Dog walk</Span>
+          </Text>
+          <Icons>
+            <ButtonCheck>
+              <CheckCircleOutlined />
+            </ButtonCheck>
+            <ButtonRemove>
+              <RemoveCircleOutlineOutlined />
+            </ButtonRemove>
+          </Icons>
+        </Item>
+      </Items>
     </Container>
   );
 };
