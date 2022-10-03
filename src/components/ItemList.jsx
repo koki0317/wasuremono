@@ -14,23 +14,25 @@ const Icons = styled.div``;
 const ButtonCheck = styled.button``;
 const ButtonRemove = styled.button``;
 
-const ItemList = () => {
+const ItemList = ({ itemList, setItemList }) => {
   return (
     <Container>
       <Items>
-        <Item>
-          <Text>
-            <Span>Dog walk</Span>
-          </Text>
-          <Icons>
-            <ButtonCheck>
-              <CheckCircleOutlined />
-            </ButtonCheck>
-            <ButtonRemove>
-              <RemoveCircleOutlineOutlined />
-            </ButtonRemove>
-          </Icons>
-        </Item>
+        {itemList.map((item, index) => (
+          <Item key={index}>
+            <Text>
+              <Span>{item.text}</Span>
+            </Text>
+            <Icons>
+              <ButtonCheck>
+                <CheckCircleOutlined />
+              </ButtonCheck>
+              <ButtonRemove>
+                <RemoveCircleOutlineOutlined />
+              </ButtonRemove>
+            </Icons>
+          </Item>
+        ))}
       </Items>
     </Container>
   );
