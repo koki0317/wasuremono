@@ -32,9 +32,16 @@ const Button = styled.button`
   box-shadow: 0 5px 0 #c2c0c0;
   cursor: pointer;
   transition: all 0.5s ease;
+  opacity: 0.93;
+
+  &:active {
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+    border-bottom: none;
+  }
 
   &:hover {
-    transform: scale(1.1);
+    opacity: 1;
   }
 `;
 const ContentWrapper = styled.div`
