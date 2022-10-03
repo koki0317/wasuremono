@@ -3,17 +3,23 @@ import styled from "styled-components";
 import ItemList from "./ItemList";
 import ListForm from "./ListForm";
 
+const Icons = styled.div``;
+
 const Item = () => {
   const [edit, setEdit] = useState({
     id: null,
     value: "",
   });
-
-  return Items.map((item, index) => (
+  return items.map((item, index) => (
     <div
       className={item.isCompleted ? "item-row complete" : "item-row"}
       key={index}
-    ></div>
+    >
+      <div key={item.id} onClick={() => completeItem(item.id)}>
+        {item.text}
+      </div>
+      <Icons></Icons>
+    </div>
   ));
 };
 
