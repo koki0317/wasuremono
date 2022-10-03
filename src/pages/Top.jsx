@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -35,7 +36,6 @@ const Button = styled.button`
   opacity: 0.93;
 
   &:active {
-    -webkit-transform: translateY(4px);
     transform: translateY(4px);
     border-bottom: none;
   }
@@ -67,7 +67,9 @@ const Top = () => {
           <ContentWrapper>
             <Title>Create your list!</Title>
             <SubTitle>Never forget your travel items</SubTitle>
-            <Button>START</Button>
+            <Link to={`/list`}>
+              <Button>START</Button>
+            </Link>
           </ContentWrapper>
         </Box>
       </Wrapper>
