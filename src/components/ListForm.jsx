@@ -48,7 +48,12 @@ const ListForm = ({ itemList, setItemList }) => {
     <Container>
       <FormWrapper>
         <Form onSubmit={handleSubmit}>
-          <Input type="text" onChange={handleChange} value={inputText}></Input>
+          <Input
+            type="text"
+            onChange={handleChange}
+            value={inputText}
+            placeholder="item name"
+          ></Input>
           <Button>
             <AddCircleOutlineOutlined />
           </Button>
