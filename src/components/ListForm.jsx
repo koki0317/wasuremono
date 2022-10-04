@@ -29,7 +29,9 @@ const ListForm = ({ itemList, setItemList }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    if (inputText === "") {
+      return;
+    }
     //add the item
     setItemList([
       ...itemList,
