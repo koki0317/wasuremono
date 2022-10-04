@@ -3,15 +3,31 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.div``;
-const Form = styled.form``;
-const Input = styled.input``;
-const Button = styled.button``;
+const Form = styled.form`
+  display: inline-flex;
+  /* align-items: center; */
+
+  border: 2px solid #6c63ff;
+`;
+const Input = styled.input`
+  width: 200px;
+  border: none;
+  outline: none;
+  font-size: 20px;
+`;
+const Button = styled.button`
+  border: none;
+  color: white;
+  background-color: #6c63ff;
+`;
+const FormWrapper = styled.div``;
 
 const ListForm = ({ itemList, setItemList }) => {
   const [inputText, setInputText] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     //add the item
     setItemList([
       ...itemList,
@@ -28,12 +44,14 @@ const ListForm = ({ itemList, setItemList }) => {
   };
   return (
     <Container>
-      <Form onSubmit={handleSubmit}>
-        <Input type="text" onChange={handleChange} value={inputText}></Input>
-        <Button>
-          <AddCircleOutlineOutlined />
-        </Button>
-      </Form>
+      <FormWrapper>
+        <Form onSubmit={handleSubmit}>
+          <Input type="text" onChange={handleChange} value={inputText}></Input>
+          <Button>
+            <AddCircleOutlineOutlined />
+          </Button>
+        </Form>
+      </FormWrapper>
     </Container>
   );
 };
