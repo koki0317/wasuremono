@@ -16,10 +16,11 @@ const ListForm = ({ itemList, setItemList }) => {
     setItemList([
       ...itemList,
       {
+        id: itemList.length,
         text: inputText,
       },
     ]);
-    console.log(itemList);
+    setInputText("");
   };
 
   const handleChange = (e) => {
@@ -28,7 +29,7 @@ const ListForm = ({ itemList, setItemList }) => {
   return (
     <Container>
       <Form onSubmit={handleSubmit}>
-        <Input type="text" onChange={handleChange} placeholder=""></Input>
+        <Input type="text" onChange={handleChange} value={inputText}></Input>
         <Button>
           <AddCircleOutlineOutlined />
         </Button>
