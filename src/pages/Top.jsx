@@ -54,7 +54,7 @@ const Box = styled.div`
   padding-top: 30px;
   background-color: #6c63ff;
   margin-top: 50px;
-  border-radius: 0 0 30px 30px;
+  border-radius: 30px;
   height: 80vh;
 `;
 

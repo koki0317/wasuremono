@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import ItemList from "../components/ItemList";
 import ListForm from "../components/ListForm";
@@ -13,6 +14,7 @@ const Wrapper = styled.div`
 
 const Image = styled.img`
   height: 100px;
+  cursor: pointer;
 `;
 
 const List = () => {
@@ -20,7 +22,9 @@ const List = () => {
   return (
     <Container>
       <Wrapper>
-        <Image src="undraw_To_do_list_re_9nt7.png" />
+        <Link to={`/`}>
+          <Image src="undraw_To_do_list_re_9nt7.png" />
+        </Link>
         <Title>Travel items</Title>
         <ListForm itemList={itemList} setItemList={setItemList} />
         <ItemList itemList={itemList} setItemList={setItemList} />

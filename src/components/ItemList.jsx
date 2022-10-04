@@ -1,4 +1,4 @@
-import { Clear, RemoveCircleOutlineOutlined } from "@mui/icons-material";
+import { RemoveCircleOutlineOutlined } from "@mui/icons-material";
 import React, { useState } from "react";
 import styled from "styled-components";
 
@@ -15,18 +15,18 @@ const Item = styled.div`
 const Text = styled.div``;
 const Span = styled.span``;
 
-const Quantity = styled.div`
-  padding: 0 5px;
-  margin-right: 5px;
-  border: 1px solid gray;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-const QuantityIconWrapper = styled.div`
-  display: flex;
-`;
+// const Quantity = styled.div`
+//   padding: 0 5px;
+//   margin-right: 5px;
+//   border: 1px solid gray;
+//   border-radius: 10px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// `;
+// const QuantityIconWrapper = styled.div`
+//   display: flex;
+// `;
 const ContentWrapper = styled.div`
   display: flex;
   justify-content: space-between;
@@ -43,14 +43,13 @@ const ButtonRemove = styled.button`
   background-color: #6c63ff;
   display: flex;
   align-items: center;
+  height: 30px;
 `;
 
 const ItemList = ({ itemList, setItemList }) => {
   const handleDelete = (id) => {
     setItemList(itemList.filter((item) => item.id !== id));
   };
-
-  const [quantity, setQuantity] = useState(1);
 
   return (
     <Container>
@@ -61,16 +60,10 @@ const ItemList = ({ itemList, setItemList }) => {
               <Text>
                 <Span>{item.text}</Span>
               </Text>
-              <QuantityIconWrapper>
-                <Quantity>
-                  <Clear style={{ fontSize: "15px" }} />
-                  {quantity}
-                </Quantity>
 
-                <ButtonRemove onClick={() => handleDelete(item.id)}>
-                  <RemoveCircleOutlineOutlined />
-                </ButtonRemove>
-              </QuantityIconWrapper>
+              <ButtonRemove onClick={() => handleDelete(item.id)}>
+                <RemoveCircleOutlineOutlined />
+              </ButtonRemove>
             </ContentWrapper>
           </Item>
         ))}
