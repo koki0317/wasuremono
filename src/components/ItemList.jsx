@@ -14,7 +14,7 @@ const Item = styled.div`
 `;
 const Text = styled.div``;
 const Span = styled.span``;
-const Icon = styled.div``;
+
 const Quantity = styled.div`
   padding: 0 5px;
   margin-right: 5px;
@@ -39,8 +39,10 @@ const ContentWrapper = styled.div`
 
 const ButtonRemove = styled.button`
   color: white;
-  background-color: #6c63ff;
   border: none;
+  background-color: #6c63ff;
+  display: flex;
+  align-items: center;
 `;
 
 const ItemList = ({ itemList, setItemList }) => {
@@ -49,6 +51,7 @@ const ItemList = ({ itemList, setItemList }) => {
   };
 
   const [quantity, setQuantity] = useState(1);
+
   return (
     <Container>
       <Items>
@@ -63,11 +66,10 @@ const ItemList = ({ itemList, setItemList }) => {
                   <Clear style={{ fontSize: "15px" }} />
                   {quantity}
                 </Quantity>
-                <Icon>
-                  <ButtonRemove onClick={() => handleDelete(item.id)}>
-                    <RemoveCircleOutlineOutlined />
-                  </ButtonRemove>
-                </Icon>
+
+                <ButtonRemove onClick={() => handleDelete(item.id)}>
+                  <RemoveCircleOutlineOutlined />
+                </ButtonRemove>
               </QuantityIconWrapper>
             </ContentWrapper>
           </Item>

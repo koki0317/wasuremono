@@ -19,6 +19,8 @@ const Button = styled.button`
   border: none;
   color: white;
   background-color: #6c63ff;
+  display: flex;
+  align-items: center;
 `;
 const FormWrapper = styled.div``;
 
