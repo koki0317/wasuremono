@@ -1,5 +1,5 @@
 import { Clear, RemoveCircleOutlineOutlined } from "@mui/icons-material";
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.div``;
@@ -47,6 +47,8 @@ const ItemList = ({ itemList, setItemList }) => {
   const handleDelete = (id) => {
     setItemList(itemList.filter((item) => item.id !== id));
   };
+
+  const [quantity, setQuantity] = useState(1);
   return (
     <Container>
       <Items>
@@ -58,7 +60,8 @@ const ItemList = ({ itemList, setItemList }) => {
               </Text>
               <QuantityIconWrapper>
                 <Quantity>
-                  <Clear style={{ fontSize: "15px" }} />1
+                  <Clear style={{ fontSize: "15px" }} />
+                  {quantity}
                 </Quantity>
                 <Icon>
                   <ButtonRemove onClick={() => handleDelete(item.id)}>
