@@ -1,4 +1,4 @@
-import { RemoveCircleOutlineOutlined } from "@mui/icons-material";
+import { Clear, RemoveCircleOutlineOutlined } from "@mui/icons-material";
 import React from "react";
 import styled from "styled-components";
 
@@ -15,6 +15,18 @@ const Item = styled.div`
 const Text = styled.div``;
 const Span = styled.span``;
 const Icon = styled.div``;
+const Quantity = styled.div`
+  padding: 0 5px;
+  margin-right: 5px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+const QuantityIconWrapper = styled.div`
+  display: flex;
+`;
 const ContentWrapper = styled.div`
   display: flex;
   justify-content: space-between;
@@ -44,11 +56,16 @@ const ItemList = ({ itemList, setItemList }) => {
               <Text>
                 <Span>{item.text}</Span>
               </Text>
-              <Icon>
-                <ButtonRemove onClick={() => handleDelete(item.id)}>
-                  <RemoveCircleOutlineOutlined />
-                </ButtonRemove>
-              </Icon>
+              <QuantityIconWrapper>
+                <Quantity>
+                  <Clear style={{ fontSize: "15px" }} />1
+                </Quantity>
+                <Icon>
+                  <ButtonRemove onClick={() => handleDelete(item.id)}>
+                    <RemoveCircleOutlineOutlined />
+                  </ButtonRemove>
+                </Icon>
+              </QuantityIconWrapper>
             </ContentWrapper>
           </Item>
         ))}
