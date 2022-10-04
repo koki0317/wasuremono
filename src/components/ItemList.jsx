@@ -18,10 +18,18 @@ const Icon = styled.div``;
 const ContentWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  border: 1px solid black;
+  align-items: center;
+  font-size: 18px;
+  border: 1px solid #6c63ff;
+  margin-bottom: 3px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 `;
 
-const ButtonRemove = styled.button``;
+const ButtonRemove = styled.button`
+  color: white;
+  background-color: #6c63ff;
+  border: none;
+`;
 
 const ItemList = ({ itemList, setItemList }) => {
   const handleDelete = (id) => {
