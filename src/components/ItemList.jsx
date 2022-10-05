@@ -1,5 +1,5 @@
 import { RemoveCircleOutlineOutlined } from "@mui/icons-material";
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
@@ -62,6 +62,7 @@ const ItemList = ({ itemList, setItemList }) => {
                 <Text>
                   <Span>{item.text}</Span>
                 </Text>
+
                 <ButtonRemove onClick={() => handleDelete(item.id)}>
                   <RemoveCircleOutlineOutlined />
                 </ButtonRemove>
