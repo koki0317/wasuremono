@@ -1,6 +1,7 @@
 import { RemoveCircleOutlineOutlined } from "@mui/icons-material";
 import React, { useState } from "react";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 const Container = styled.div``;
 const Items = styled.div`
@@ -56,15 +57,16 @@ const ItemList = ({ itemList, setItemList }) => {
       <Items>
         {itemList.map((item, index) => (
           <Item key={index}>
-            <ContentWrapper>
-              <Text>
-                <Span>{item.text}</Span>
-              </Text>
-
-              <ButtonRemove onClick={() => handleDelete(item.id)}>
-                <RemoveCircleOutlineOutlined />
-              </ButtonRemove>
-            </ContentWrapper>
+            <motion.div initial={{ x: "-100vw" }} animate={{ x: 0 }}>
+              <ContentWrapper>
+                <Text>
+                  <Span>{item.text}</Span>
+                </Text>
+                <ButtonRemove onClick={() => handleDelete(item.id)}>
+                  <RemoveCircleOutlineOutlined />
+                </ButtonRemove>
+              </ContentWrapper>
+            </motion.div>
           </Item>
         ))}
       </Items>

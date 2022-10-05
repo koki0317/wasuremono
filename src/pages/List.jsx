@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import ItemList from "../components/ItemList";
 import ListForm from "../components/ListForm";
+import { motion } from "framer-motion";
 
 const Container = styled.div``;
 const Title = styled.h1`
@@ -22,11 +23,19 @@ const List = () => {
   return (
     <Container>
       <Wrapper>
-        <Link to={`/`}>
-          <Image src="undraw_To_do_list_re_9nt7.png" />
-        </Link>
-        <Title>Travel items</Title>
-        <ListForm itemList={itemList} setItemList={setItemList} />
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 1 }}
+        >
+          <Link to={`/`}>
+            <Image src="undraw_To_do_list_re_9nt7.png" />
+          </Link>
+
+          <Title>Travel items</Title>
+          <ListForm itemList={itemList} setItemList={setItemList} />
+        </motion.div>
+
         <ItemList itemList={itemList} setItemList={setItemList} />
       </Wrapper>
     </Container>

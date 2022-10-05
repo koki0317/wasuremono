@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import TopButton from "../components/TopButton";
+import { motion } from "framer-motion";
 
 const Container = styled.div`
   display: flex;
@@ -67,6 +69,7 @@ const Top = () => {
           <ContentWrapper>
             <Title>Create your list!</Title>
             <SubTitle>Never forget your travel items</SubTitle>
+
             <Link to={`/list`}>
               <Button>START</Button>
             </Link>
