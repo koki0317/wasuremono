@@ -57,7 +57,11 @@ const ItemList = ({ itemList, setItemList }) => {
       <Items>
         {itemList.map((item, index) => (
           <Item key={index}>
-            <motion.div initial={{ x: "-100vw" }} animate={{ x: 0 }}>
+            <motion.div
+              initial={{ x: "-100vw" }}
+              animate={{ x: 0 }}
+              transition={{ duration: 0.5 }}
+            >
               <ContentWrapper>
                 <Text>
                   <Span>{item.text}</Span>
