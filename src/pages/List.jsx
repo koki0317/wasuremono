@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import ItemList from "../components/ItemList";
@@ -19,22 +19,23 @@ const Image = styled.img`
 `;
 
 const List = () => {
-  const [itemList, setItemList] = useState([]);
+  const [itemList, setItemList] = useState(
+    JSON.parse(localStorage.getItem("items")) || []
+  );
+
+  useEffect(() => {
+    localStorage.setItem("items", JSON.stringify(itemList));
+  }, [itemList]);
+
   return (
     <Container>
       <Wrapper>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 1 }}
-        >
-          <Link to={`/`}>
-            <Image src="undraw_To_do_list_re_9nt7.png" />
-          </Link>
+        <Link to={`/`}>
+          <Image src="undraw_To_do_list_re_9nt7.png" />
+        </Link>
 
-          <Title>Travel items</Title>
-          <ListForm itemList={itemList} setItemList={setItemList} />
-        </motion.div>
+        <Title>Travel items</Title>
+        <ListForm itemList={itemList} setItemList={setItemList} />
 
         <ItemList itemList={itemList} setItemList={setItemList} />
       </Wrapper>
