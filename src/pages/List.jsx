@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import ItemList from "../components/ItemList";
 import ListForm from "../components/ListForm";
-import { motion } from "framer-motion";
 
 const Container = styled.div``;
 const Title = styled.h1`
