@@ -15,11 +15,16 @@ const List = styled.div`
   justify-content: space-between;
   align-items: center;
   border: 1px solid #6c63ff;
-  width: 80%;
+  width: 90%;
   padding: 5px 10px;
 `;
 const ListTitle = styled.h2``;
-const Date = styled.span``;
+const Date = styled.span`
+  background-color: #6c63ff;
+  color: white;
+  font-weight: 700;
+  padding: 5px;
+`;
 const Image = styled.img`
   height: 200px;
 `;
@@ -29,6 +34,8 @@ const TitleImageWrapper = styled.div`
 `;
 
 const Lists = () => {
+  const today = new window.Date();
+  const formatDate = today.toLocaleDateString();
   return (
     <Container>
       <TitleImageWrapper>
@@ -38,7 +45,7 @@ const Lists = () => {
       <ListWrapper>
         <List>
           <ListTitle>Travel abroad</ListTitle>
-          <Date>today</Date>
+          <Date>{formatDate}</Date>
         </List>
       </ListWrapper>
     </Container>
