@@ -34,8 +34,6 @@ const TitleImageWrapper = styled.div`
 `;
 
 const Lists = () => {
-  const today = new window.Date();
-  const formatDate = today.toLocaleDateString();
   return (
     <Container>
       <TitleImageWrapper>
@@ -45,7 +43,7 @@ const Lists = () => {
       <ListWrapper>
         <List>
           <ListTitle>Travel abroad</ListTitle>
-          <Date>{formatDate}</Date>
+          <Date>today</Date>
         </List>
       </ListWrapper>
     </Container>
