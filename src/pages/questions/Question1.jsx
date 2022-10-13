@@ -22,7 +22,7 @@ const Title = styled.h1`
   margin-bottom: 30px;
 `;
 
-const Question = () => {
+const Question1 = ({ addAnswer }) => {
   return (
     <Container>
       <Wrapper>
@@ -31,8 +31,14 @@ const Question = () => {
           or <br />
           International travel?
         </Title>
-        <ComponentButton content={"Domestic"} />
-        <ComponentButton content={"International"} />
+        <ComponentButton
+          content={"Domestic"}
+          onClick={() => addAnswer("Domestic")}
+        />
+        <ComponentButton
+          content={"International"}
+          onClick={() => addAnswer("International")}
+        />
         <Link to="/create">
           <ComponentButton
             backgroundColor={"rgba(0, 0, 0, 0.7)"}
@@ -44,4 +50,4 @@ const Question = () => {
   );
 };
 
-export default Question;
+export default Question1;
