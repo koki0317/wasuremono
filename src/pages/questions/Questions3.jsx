@@ -26,6 +26,7 @@ const Questions3 = ({ addAnswer }) => {
   return (
     <Container>
       <Wrapper>
+        3/3
         <Title>Are you taking any medications?</Title>
         <ComponentButton content={"Yes"} onClick={() => addAnswer("yes")} />
         <ComponentButton content={"No"} onClick={() => addAnswer("no")} />

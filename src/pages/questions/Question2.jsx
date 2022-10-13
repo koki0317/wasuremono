@@ -38,6 +38,7 @@ const Question2 = ({ addAnswer }) => {
   return (
     <Container>
       <Wrapper>
+        2/3
         <Title>How many days are you staying?</Title>
         <FormControl fullWidth style={{ marginBottom: "30px" }}>
           <InputLabel id="demo-simple-select-label">Days</InputLabel>
@@ -57,7 +58,6 @@ const Question2 = ({ addAnswer }) => {
             <MenuItem value={10}>More</MenuItem>
           </Select>
         </FormControl>
-
         <Link to="/create/question3">
           <ComponentButton content={"NEXT"} onClick={() => handleClick()} />
         </Link>
