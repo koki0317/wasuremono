@@ -17,7 +17,7 @@ const Title = styled.h3`
 const Footer = () => {
   return (
     <Container>
-      <Title>Your memory is poor.</Title>
+      <Title>Wasuremono.</Title>
     </Container>
   );
 };
