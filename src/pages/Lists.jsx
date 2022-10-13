@@ -38,8 +38,8 @@ const TitleWrapper = styled.div`
 `;
 
 const CreateButton = styled.button`
-  height: 45px;
-  width: 45px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
   border: none;
   background-color: #6c63ff;

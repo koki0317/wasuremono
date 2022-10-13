@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -26,6 +27,7 @@ const Title = styled.h1`
   margin-bottom: 30px;
   text-shadow: 2px 7px 5px rgba(0, 0, 0, 0.3),
     0px -4px 10px rgba(255, 255, 255, 0.3);
+  letter-spacing: 2px;
 `;
 const Button = styled.button`
   width: 200px;
@@ -53,7 +55,7 @@ const Button = styled.button`
 `;
 
 const BackButton = styled.button`
-  width: 150px;
+  width: 200px;
   background-color: #6c63ff;
   border: none;
   border-radius: 3px;
@@ -85,8 +87,12 @@ const CreateList = () => {
           <span style={{ color: "red", fontSize: "28px" }}>easily</span> by
           answering a few questions!{" "}
         </Title>
-        <Button>CREATE</Button>
-        <BackButton>Back</BackButton>
+        <Link to="/create/question1">
+          <Button>CREATE</Button>
+        </Link>
+        <Link to="/lists">
+          <BackButton>Back</BackButton>
+        </Link>
       </Wrapper>
     </Container>
   );
