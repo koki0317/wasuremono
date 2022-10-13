@@ -1,8 +1,8 @@
-import React from "react";
+import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import ComponentButton from "../../components/Button";
-import NumberPicker from "react-widgets/NumberPicker";
 
 const Container = styled.div`
   display: flex;
@@ -24,13 +24,42 @@ const Title = styled.h1`
 `;
 
 const Question2 = ({ addAnswer }) => {
+  const [input, setInput] = useState("");
+
+  const handleChange = (e) => {
+    console.log(e.target.value);
+    setInput(e.target.value);
+  };
+
+  const handleClick = () => {
+    addAnswer(input);
+  };
+
   return (
     <Container>
       <Wrapper>
-        <Title>How many nights are you staying?</Title>
-        <NumberPicker defaultValue={0} />;
+        <Title>How many days are you staying?</Title>
+        <FormControl fullWidth style={{ marginBottom: "30px" }}>
+          <InputLabel id="demo-simple-select-label">Days</InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            label="Days"
+            onChange={handleChange}
+          >
+            <MenuItem value={1}>1</MenuItem>
+            <MenuItem value={2}>2</MenuItem>
+            <MenuItem value={3}>3</MenuItem>
+            <MenuItem value={4}>4</MenuItem>
+            <MenuItem value={5}>5</MenuItem>
+            <MenuItem value={6}>6</MenuItem>
+            <MenuItem value={7}>7</MenuItem>
+            <MenuItem value={10}>More</MenuItem>
+          </Select>
+        </FormControl>
+
         <Link to="/create/question3">
-          <ComponentButton content={"NEXT"} />
+          <ComponentButton content={"NEXT"} onClick={() => handleClick()} />
         </Link>
         <Link to="/create/question1">
           <ComponentButton

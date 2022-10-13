@@ -12,8 +12,8 @@ import { useState } from "react";
 
 const App = () => {
   const [answer, setAnswer] = useState([]);
-  const addAnswer = (travel) => {
-    setAnswer([...answer, travel]);
+  const addAnswer = (choice) => {
+    setAnswer([...answer, choice]);
   };
   console.log(answer);
   return (
@@ -27,7 +27,10 @@ const App = () => {
           path="/create/question1"
           element={<Question1 addAnswer={addAnswer} />}
         />
-        <Route path="/create/question2" element={<Question2 />} />
+        <Route
+          path="/create/question2"
+          element={<Question2 addAnswer={addAnswer} />}
+        />
         <Route path="/create/question3" element={<Questions3 />} />
       </Routes>
       <Footer />
