@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import ComponentButton from "../components/Button";
 
 const Container = styled.div`
   text-align: center;
@@ -31,54 +32,6 @@ const Title = styled.h1`
   font-style: italic;
   font-weight: 800;
 `;
-const Button = styled.button`
-  width: 200px;
-  background-color: #6c63ff;
-  border: none;
-  border-radius: 3px;
-  padding: 5px 0;
-  font-size: 20px;
-  color: white;
-  font-weight: 600;
-  box-shadow: 0 5px 0 #c2c0c0;
-  cursor: pointer;
-  transition: all 0.5s ease;
-  opacity: 0.93;
-  margin-bottom: 30px;
-
-  &:active {
-    transform: translateY(4px);
-    border-bottom: none;
-  }
-
-  &:hover {
-    opacity: 1;
-  }
-`;
-
-const BackButton = styled.button`
-  width: 200px;
-  background-color: rgba(0, 0, 0, 0.7);
-  border: none;
-  border-radius: 3px;
-  padding: 5px 0;
-  font-size: 20px;
-  color: white;
-  font-weight: 600;
-  box-shadow: 0 5px 0 #c2c0c0;
-  cursor: pointer;
-  transition: all 0.5s ease;
-  opacity: 0.93;
-
-  &:active {
-    transform: translateY(4px);
-    border-bottom: none;
-  }
-
-  &:hover {
-    opacity: 1;
-  }
-`;
 
 const CreateList = () => {
   return (
@@ -90,10 +43,13 @@ const CreateList = () => {
           answering a few questions!{" "}
         </Title>
         <Link to="/create/question1">
-          <Button>CREATE</Button>
+          <ComponentButton content={"CREATE"}></ComponentButton>
         </Link>
         <Link to="/lists">
-          <BackButton>Back</BackButton>
+          <ComponentButton
+            content={"Back"}
+            backgroundColor={"rgba(0, 0, 0, 0.7)"}
+          ></ComponentButton>
         </Link>
       </Wrapper>
     </Container>
