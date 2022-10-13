@@ -2,13 +2,12 @@ import Top from "./pages/Top";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import List from "./pages/List";
 import Footer from "./components/Footer";
-
 import Lists from "./pages/Lists";
 import CreateList from "./pages/CreateList";
 import Question1 from "./pages/questions/Question1";
 import Question2 from "./pages/questions/Question2";
-import Questions3 from "./pages/questions/Questions3";
 import { useState } from "react";
+import Question3 from "./pages/questions/Question3";
 
 const App = () => {
   const [answer, setAnswer] = useState([]);
@@ -33,7 +32,7 @@ const App = () => {
         />
         <Route
           path="/create/question3"
-          element={<Questions3 addAnswer={addAnswer} />}
+          element={<Question3 addAnswer={addAnswer} />}
         />
       </Routes>
       <Footer />

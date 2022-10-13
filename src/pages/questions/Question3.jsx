@@ -22,7 +22,7 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const Questions3 = ({ addAnswer }) => {
+const Question3 = ({ addAnswer }) => {
   return (
     <Container>
       <Wrapper>
@@ -41,4 +41,4 @@ const Questions3 = ({ addAnswer }) => {
   );
 };
 
-export default Questions3;
+export default Question3;
