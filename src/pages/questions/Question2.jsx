@@ -1,16 +1,44 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
+import ComponentButton from "../../components/Button";
+import NumberPicker from "react-widgets/NumberPicker";
 
-const Container = styled.div``;
-const Title = styled.h1``;
-const Button = styled.button``;
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  height: 79vh;
+  padding-top: 100px;
+`;
+const Wrapper = styled.div`
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+`;
+const Title = styled.h1`
+  font-style: italic;
+  font-weight: 400;
+  margin-bottom: 30px;
+`;
 
-const Question2 = () => {
+const Question2 = ({ addAnswer }) => {
   return (
     <Container>
-      <Title>Domestic or International travel?</Title>
-      <Button>Domestic</Button>
-      <Button>International</Button>
+      <Wrapper>
+        <Title>How many nights are you staying?</Title>
+        <NumberPicker defaultValue={0} />;
+        <Link to="/create/question3">
+          <ComponentButton content={"NEXT"} />
+        </Link>
+        <Link to="/create/question1">
+          <ComponentButton
+            backgroundColor={"rgba(0, 0, 0, 0.7)"}
+            content={"Back"}
+          />
+        </Link>
+      </Wrapper>
     </Container>
   );
 };
