@@ -26,7 +26,11 @@ const Question = () => {
   return (
     <Container>
       <Wrapper>
-        <Title>Domestic or International travel?</Title>
+        <Title>
+          Domestic <br />
+          or <br />
+          International travel?
+        </Title>
         <ComponentButton content={"Domestic"} />
         <ComponentButton content={"International"} />
         <Link to="/create">
