@@ -1,9 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import ComponentButton from "./Button";
 
 const Container = styled.div`
   display: flex;
   justify-content: center;
+  height: 79vh;
+  padding-top: 100px;
 `;
 const Wrapper = styled.div`
   width: 80%;
@@ -11,19 +14,22 @@ const Wrapper = styled.div`
   flex-direction: column;
   text-align: center;
 `;
-const Title = styled.h1``;
-const Button = styled.button``;
+const Title = styled.h1`
+  font-style: italic;
+  font-weight: 400;
+`;
+// const Button = styled.button``;
 
-const Question1 = () => {
+const Question = () => {
   return (
     <Container>
       <Wrapper>
         <Title>Domestic or International travel?</Title>
-        <Button>Domestic</Button>
-        <Button>International</Button>
+        <ComponentButton content={"Hello"} />
+        <ComponentButton content={"Hello"} />
       </Wrapper>
     </Container>
   );
 };
 
-export default Question1;
+export default Question;
