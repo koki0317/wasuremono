@@ -26,8 +26,10 @@ const Button = styled.button`
   }
 `;
 
-const ComponentButton = ({ content }) => {
-  return <Button>{content}</Button>;
+const ComponentButton = ({ content, backgroundColor }) => {
+  return (
+    <Button style={{ backgroundColor: backgroundColor }}>{content}</Button>
+  );
 };
 
 export default ComponentButton;

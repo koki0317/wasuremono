@@ -28,6 +28,7 @@ const Title = styled.h1`
   text-shadow: 2px 7px 5px rgba(0, 0, 0, 0.3),
     0px -4px 10px rgba(255, 255, 255, 0.3);
   letter-spacing: 2px;
+  font-style: italic;
 `;
 const Button = styled.button`
   width: 200px;
@@ -56,7 +57,7 @@ const Button = styled.button`
 
 const BackButton = styled.button`
   width: 200px;
-  background-color: #6c63ff;
+  background-color: rgba(0, 0, 0, 0.7);
   border: none;
   border-radius: 3px;
   padding: 5px 0;
