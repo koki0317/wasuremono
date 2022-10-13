@@ -4,6 +4,8 @@ import List from "./pages/List";
 import Footer from "./components/Footer";
 import TopButton from "./components/TopButton";
 import Lists from "./pages/Lists";
+import CreateList from "./pages/CreateList";
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -11,6 +13,7 @@ const App = () => {
         <Route path="/" element={<Top />} />
         <Route path="/list" element={<List />} />
         <Route path="/lists" element={<Lists />} />
+        <Route path="/create" element={<CreateList />} />
         <Route path="/practice" element={<TopButton />} />
       </Routes>
       <Footer />

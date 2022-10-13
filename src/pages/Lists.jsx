@@ -1,5 +1,6 @@
 import { Add } from "@mui/icons-material";
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -7,7 +8,7 @@ const Container = styled.div`
 `;
 const Title = styled.h1`
   text-align: center;
-  margin-top: 10px;
+  margin-top: 15px;
 `;
 const ListWrapper = styled.div`
   display: flex;
@@ -57,9 +58,11 @@ const Lists = () => {
     <Container>
       <TitleWrapper>
         <Title>Your lists</Title>
-        <CreateButton>
-          <Add style={{ fontSize: "35px" }} />
-        </CreateButton>
+        <Link to="/create">
+          <CreateButton>
+            <Add style={{ fontSize: "35px" }} />
+          </CreateButton>
+        </Link>
         <Image src="undraw_Note_list_re_r4u9.png" />
       </TitleWrapper>
 
