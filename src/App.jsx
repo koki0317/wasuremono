@@ -31,7 +31,10 @@ const App = () => {
           path="/create/question2"
           element={<Question2 addAnswer={addAnswer} />}
         />
-        <Route path="/create/question3" element={<Questions3 />} />
+        <Route
+          path="/create/question3"
+          element={<Questions3 addAnswer={addAnswer} />}
+        />
       </Routes>
       <Footer />
     </BrowserRouter>

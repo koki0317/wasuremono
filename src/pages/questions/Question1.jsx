@@ -26,6 +26,7 @@ const Question1 = ({ addAnswer }) => {
   return (
     <Container>
       <Wrapper>
+        1/3
         <Title>
           Domestic <br />
           or <br />
