@@ -31,14 +31,18 @@ const Question1 = ({ addAnswer }) => {
           or <br />
           International travel?
         </Title>
-        <ComponentButton
-          content={"Domestic"}
-          onClick={() => addAnswer("Domestic")}
-        />
-        <ComponentButton
-          content={"International"}
-          onClick={() => addAnswer("International")}
-        />
+        <Link to="/create/question2">
+          <ComponentButton
+            content={"Domestic"}
+            onClick={() => addAnswer("Domestic")}
+          />
+        </Link>
+        <Link to="/create/question2">
+          <ComponentButton
+            content={"International"}
+            onClick={() => addAnswer("International")}
+          />
+        </Link>
         <Link to="/create">
           <ComponentButton
             backgroundColor={"rgba(0, 0, 0, 0.7)"}
