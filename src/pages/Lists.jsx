@@ -1,7 +1,10 @@
+import { Add } from "@mui/icons-material";
 import React from "react";
 import styled from "styled-components";
 
-const Container = styled.div``;
+const Container = styled.div`
+  position: relative;
+`;
 const Title = styled.h1`
   text-align: center;
   margin-top: 10px;
@@ -29,17 +32,37 @@ const Image = styled.img`
   height: 200px;
 `;
 
-const TitleImageWrapper = styled.div`
+const TitleWrapper = styled.div`
   text-align: center;
+`;
+
+const CreateButton = styled.button`
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  border: none;
+  background-color: #6c63ff;
+  position: absolute;
+  top: 0;
+  right: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 `;
 
 const Lists = () => {
   return (
     <Container>
-      <TitleImageWrapper>
+      <TitleWrapper>
         <Title>Your lists</Title>
+        <CreateButton>
+          <Add style={{ fontSize: "35px" }} />
+        </CreateButton>
         <Image src="undraw_Note_list_re_r4u9.png" />
-      </TitleImageWrapper>
+      </TitleWrapper>
+
       <ListWrapper>
         <List>
           <ListTitle>Travel abroad</ListTitle>
