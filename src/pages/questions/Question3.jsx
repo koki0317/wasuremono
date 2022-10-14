@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import ComponentButton from "../../components/Button";
@@ -23,15 +23,43 @@ const Wrapper = styled.div`
 `;
 
 const Question3 = ({ addAnswer, answer }) => {
+  const baseList = {
+    1: "Travel guide",
+    2: "snacks and drinks",
+    3: "Phone charger",
+    4: "Toothbrush and paste",
+    5: "Soap",
+    6: "Shaver",
+  };
+
   const deleteItem = () => {
     answer.pop();
   };
+
+  const [list, setList] = useState([]);
+
+  // Create a base list in object
+  // if choice is selected, autogenerate the list
+  // add some specific items to the base list, depending on the answer
+  // store its list to setList
+  // get the list number that goes into params
+  // display the list in lists/:id
+  // use List as component
+
   return (
     <Container>
       <Wrapper>
         3/3
         <Title>Are you taking any medications?</Title>
-        <ComponentButton content={"Yes"} onClick={() => addAnswer("yes")} />
+        <Link>
+          <ComponentButton
+            content={"Yes"}
+            onClick={() => {
+              addAnswer("yes");
+              console.log("Hey");
+            }}
+          />
+        </Link>
         <ComponentButton content={"No"} onClick={() => addAnswer("no")} />
         <Link to="/create/question2">
           <ComponentButton
