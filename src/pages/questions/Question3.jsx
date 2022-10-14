@@ -30,24 +30,32 @@ const Question3 = ({ addAnswer, answer }) => {
     4: "Toothbrush and paste",
     5: "Soap",
     6: "Shaver",
+    7: "T-Shirt",
   };
 
   const deleteItem = () => {
     answer.pop();
   };
 
-  const [list, setList] = useState([]);
+  const [lists, setLists] = useState([]);
 
   const addList = () => {
-    setList([
-      ...list,
+    setLists([
+      ...lists,
       {
-        id: list.length,
+        id: lists.length,
         travelList: baseList,
       },
     ]);
-    console.log(list);
   };
+
+  const box = [];
+
+  lists.forEach((list) => {
+    box.push(list.id);
+  });
+  console.log(box[box.length - 1]);
+  // console.log(list);
 
   // Create a base list in object
   // if choice is selected, autogenerate the list
