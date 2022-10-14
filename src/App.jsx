@@ -29,7 +29,7 @@ const App = () => {
         />
         <Route
           path="/create/question2"
-          element={<Question2 addAnswer={addAnswer} />}
+          element={<Question2 addAnswer={addAnswer} answer={answer} />}
         />
         <Route
           path="/create/question3"

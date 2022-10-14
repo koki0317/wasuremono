@@ -48,7 +48,7 @@ const Button = styled.button`
   }
 `;
 
-const Question2 = ({ addAnswer }) => {
+const Question2 = ({ addAnswer, answer }) => {
   const [input, setInput] = useState("");
 
   const handleChange = (e) => {
@@ -58,6 +58,10 @@ const Question2 = ({ addAnswer }) => {
 
   const handleClick = () => {
     addAnswer(input);
+  };
+
+  const deleteItem = () => {
+    answer.pop();
   };
 
   return (
@@ -95,6 +99,7 @@ const Question2 = ({ addAnswer }) => {
           <ComponentButton
             backgroundColor={"rgba(0, 0, 0, 0.7)"}
             content={"Back"}
+            onClick={() => deleteItem()}
           />
         </Link>
       </Wrapper>
