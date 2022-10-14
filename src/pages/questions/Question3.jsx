@@ -22,7 +22,10 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const Question3 = ({ addAnswer }) => {
+const Question3 = ({ addAnswer, answer }) => {
+  const deleteItem = () => {
+    answer.pop();
+  };
   return (
     <Container>
       <Wrapper>
@@ -34,6 +37,7 @@ const Question3 = ({ addAnswer }) => {
           <ComponentButton
             content={"Back"}
             backgroundColor={"rgba(0, 0, 0, 0.7)"}
+            onClick={() => deleteItem()}
           />
         </Link>
       </Wrapper>
