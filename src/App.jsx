@@ -8,6 +8,7 @@ import Question1 from "./pages/questions/Question1";
 import Question2 from "./pages/questions/Question2";
 import { useState } from "react";
 import Question3 from "./pages/questions/Question3";
+import Practice from "./pages/Practice";
 
 const App = () => {
   const [answer, setAnswer] = useState([]);
@@ -34,6 +35,7 @@ const App = () => {
           path="/create/question3"
           element={<Question3 addAnswer={addAnswer} />}
         />
+        <Route path="/practice" element={<Practice />} />
       </Routes>
       <Footer />
     </BrowserRouter>

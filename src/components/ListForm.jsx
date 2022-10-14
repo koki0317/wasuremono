@@ -1,5 +1,5 @@
 import { AddCircleOutlineOutlined } from "@mui/icons-material";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.div``;
@@ -27,11 +27,16 @@ const FormWrapper = styled.div``;
 const ListForm = ({ itemList, setItemList }) => {
   const [inputText, setInputText] = useState("");
 
+  const inputRef = useRef();
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (inputText === "") {
-      return;
-    }
+    if (inputText === "") return;
+
     //add the item
     setItemList([
       ...itemList,
@@ -55,6 +60,7 @@ const ListForm = ({ itemList, setItemList }) => {
             onChange={handleChange}
             value={inputText}
             placeholder="item name"
+            ref={inputRef}
           ></Input>
           <Button>
             <AddCircleOutlineOutlined />
