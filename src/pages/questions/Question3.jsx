@@ -38,6 +38,17 @@ const Question3 = ({ addAnswer, answer }) => {
 
   const [list, setList] = useState([]);
 
+  const addList = () => {
+    setList([
+      ...list,
+      {
+        id: list.length,
+        travelList: baseList,
+      },
+    ]);
+    console.log(list);
+  };
+
   // Create a base list in object
   // if choice is selected, autogenerate the list
   // add some specific items to the base list, depending on the answer
@@ -56,7 +67,7 @@ const Question3 = ({ addAnswer, answer }) => {
             content={"Yes"}
             onClick={() => {
               addAnswer("yes");
-              console.log("Hey");
+              addList();
             }}
           />
         </Link>
