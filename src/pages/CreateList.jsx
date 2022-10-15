@@ -42,7 +42,7 @@ const CreateList = () => {
           <span style={{ color: "red", fontSize: "28px" }}>easily</span> by
           answering a few questions!{" "}
         </Title>
-        <Link to="/create/question1">
+        <Link to="/create/title">
           <ComponentButton content={"CREATE"}></ComponentButton>
         </Link>
         <Link to="/lists">

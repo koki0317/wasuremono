@@ -29,7 +29,7 @@ const List = () => {
   return (
     <Container>
       <Wrapper>
-        <Link to={`/`}>
+        <Link to="/">
           <Image src="undraw_To_do_list_re_9nt7.png" />
         </Link>
 

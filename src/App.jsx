@@ -9,6 +9,8 @@ import Question2 from "./pages/questions/Question2";
 import { useState } from "react";
 import Question3 from "./pages/questions/Question3";
 import Practice from "./pages/Practice";
+import SingleList from "./pages/SingleList";
+import ListTitle from "./pages/ListTitle";
 
 const App = () => {
   const [answer, setAnswer] = useState([]);
@@ -23,6 +25,7 @@ const App = () => {
         <Route path="/list" element={<List />} />
         <Route path="/lists" element={<Lists />} />
         <Route path="/create" element={<CreateList />} />
+        <Route path="/create/title" element={<ListTitle />} />
         <Route
           path="/create/question1"
           element={<Question1 addAnswer={addAnswer} />}
@@ -35,7 +38,7 @@ const App = () => {
           path="/create/question3"
           element={<Question3 addAnswer={addAnswer} answer={answer} />}
         />
-        <Route path="/lists/:id" element={<Practice />} />
+        <Route path="/lists/:id" element={<SingleList />} />
         <Route path="/practice" element={<Practice />} />
       </Routes>
       <Footer />

@@ -50,23 +50,6 @@ const Question3 = ({ addAnswer, answer }) => {
     ]);
   };
 
-  const box = [];
-
-  lists.forEach((list) => {
-    box.push(list.id);
-  });
-
-  // useEffect(() => {
-  //   lists.forEach((list) => {
-  //     box.push(list.id);
-  //   });
-  // }, [lists]);
-
-  // console.log(box[box.length - 1]);
-  const id = box[box.length - 1];
-  console.log(lists);
-  console.log(id);
-
   // Create a base list in object
   // if choice is selected, autogenerate the list
   // add some specific items to the base list, depending on the answer
@@ -81,7 +64,7 @@ const Question3 = ({ addAnswer, answer }) => {
       <Wrapper>
         3/3
         <Title>Are you taking any medications?</Title>
-        <DelayLink delay={3000} to={`/lists/${id}`}>
+        <DelayLink>
           <ComponentButton
             content={"Yes"}
             onClick={() => {
