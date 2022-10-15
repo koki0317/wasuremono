@@ -50,6 +50,12 @@ const Question3 = ({ addAnswer, answer }) => {
     ]);
   };
 
+  useEffect(() => {
+    localStorage.setItem("travelItems", JSON.stringify(lists));
+  }, [lists]);
+
+  // console.log(lists);
+
   // Create a base list in object
   // if choice is selected, autogenerate the list
   // add some specific items to the base list, depending on the answer
@@ -64,7 +70,7 @@ const Question3 = ({ addAnswer, answer }) => {
       <Wrapper>
         3/3
         <Title>Are you taking any medications?</Title>
-        <DelayLink>
+        <DelayLink delay={2000}>
           <ComponentButton
             content={"Yes"}
             onClick={() => {
