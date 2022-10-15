@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Practice = () => {
   const [name, setName] = useState("");
@@ -16,7 +17,9 @@ const Practice = () => {
         onChange={(e) => setName(e.target.value)}
       />
       <div>My name is {name}</div>
-      <button onClick={hello}>Focus</button>
+      <Link to="/create/question3">
+        <button onClick={hello}>Focus</button>
+      </Link>
     </>
   );
 };

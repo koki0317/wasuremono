@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import ComponentButton from "../../components/Button";
+import DelayLink from "../../components/DelayLink";
 
 const Container = styled.div`
   display: flex;
@@ -54,8 +55,17 @@ const Question3 = ({ addAnswer, answer }) => {
   lists.forEach((list) => {
     box.push(list.id);
   });
-  console.log(box[box.length - 1]);
-  // console.log(list);
+
+  // useEffect(() => {
+  //   lists.forEach((list) => {
+  //     box.push(list.id);
+  //   });
+  // }, [lists]);
+
+  // console.log(box[box.length - 1]);
+  const id = box[box.length - 1];
+  console.log(lists);
+  console.log(id);
 
   // Create a base list in object
   // if choice is selected, autogenerate the list
@@ -64,13 +74,14 @@ const Question3 = ({ addAnswer, answer }) => {
   // get the list number that goes into params
   // display the list in lists/:id
   // use List as component
+  // make the link delay
 
   return (
     <Container>
       <Wrapper>
         3/3
         <Title>Are you taking any medications?</Title>
-        <Link>
+        <DelayLink delay={3000} to={`/lists/${id}`}>
           <ComponentButton
             content={"Yes"}
             onClick={() => {
@@ -78,7 +89,7 @@ const Question3 = ({ addAnswer, answer }) => {
               addList();
             }}
           />
-        </Link>
+        </DelayLink>
         <ComponentButton content={"No"} onClick={() => addAnswer("no")} />
         <Link to="/create/question2">
           <ComponentButton
