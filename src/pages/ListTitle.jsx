@@ -25,6 +25,12 @@ const Wrapper = styled.div`
 
 const Input = styled.input`
   margin-bottom: 30px;
+  padding: 5px 20px;
+  width: 80%;
+  outline: none;
+  border-radius: 3px;
+  font-size: 18px;
+  border: 2px solid rgba(0, 0, 0, 0.7);
 `;
 
 const ListTitle = ({ addAnswer }) => {
