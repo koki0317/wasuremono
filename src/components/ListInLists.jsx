@@ -42,7 +42,6 @@ const ListInLists = ({ answer }) => {
           <ListTitle>Travel abroad</ListTitle>
           <Date>today</Date>
         </List>
-        ;
       </ListWrapper>
     </Container>
   );
