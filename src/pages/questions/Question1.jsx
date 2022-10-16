@@ -22,7 +22,10 @@ const Title = styled.h1`
   margin-bottom: 30px;
 `;
 
-const Question1 = ({ addAnswer }) => {
+const Question1 = ({ addAnswer, answer }) => {
+  const deleteItem = () => {
+    answer.pop();
+  };
   return (
     <Container>
       <Wrapper>
@@ -48,6 +51,7 @@ const Question1 = ({ addAnswer }) => {
           <ComponentButton
             backgroundColor={"rgba(0, 0, 0, 0.7)"}
             content={"Back"}
+            onClick={() => deleteItem()}
           />
         </Link>
       </Wrapper>

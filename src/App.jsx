@@ -31,7 +31,7 @@ const App = () => {
         />
         <Route
           path="/create/question1"
-          element={<Question1 addAnswer={addAnswer} />}
+          element={<Question1 addAnswer={addAnswer} answer={answer} />}
         />
         <Route
           path="/create/question2"
