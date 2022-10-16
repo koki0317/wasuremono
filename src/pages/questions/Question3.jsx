@@ -54,7 +54,7 @@ const Question3 = ({ addAnswer, answer }) => {
     localStorage.setItem("travelItems", JSON.stringify(lists));
   }, [lists]);
 
-  // console.log(lists);
+  const path = answer[0].replace(" ", "-");
 
   // Create a base list in object
   // if choice is selected, autogenerate the list
@@ -70,7 +70,7 @@ const Question3 = ({ addAnswer, answer }) => {
       <Wrapper>
         3/3
         <Title>Are you taking any medications?</Title>
-        <DelayLink delay={2000}>
+        <DelayLink delay={2000} to={`/lists/${path}`}>
           <ComponentButton
             content={"Yes"}
             onClick={() => {

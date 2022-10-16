@@ -23,7 +23,7 @@ const Date = styled.span`
   padding: 5px;
 `;
 
-const ListInLists = () => {
+const ListInLists = ({ answer }) => {
   // get the obj from localStorage called travelItems
   // Iterate over it
   // Set the link to the title(later)
@@ -34,6 +34,7 @@ const ListInLists = () => {
   const travelLists = travelItemList.map((item) => {
     console.log(item.travelList);
   });
+  console.log(answer);
   return (
     <Container>
       <ListWrapper>
