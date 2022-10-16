@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import ComponentButton from "../components/Button";
 
 const Container = styled.div`
   display: flex;
@@ -21,14 +22,26 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const Input = styled.input``;
+const Input = styled.input`
+  margin-bottom: 30px;
+`;
 
-const ListTitle = () => {
+const ListTitle = ({ addAnswer }) => {
+  const [inputText, setInputText] = useState("");
+
+  const handleChange = (e) => {
+    setInputText(e.target.value);
+  };
+
+  const handleClick = () => {
+    addAnswer(inputText);
+  };
   return (
     <Container>
       <Wrapper>
         <Title>Name the list title.</Title>
-        <Input placeholder="List name" />
+        <Input placeholder="List name" onChange={handleChange} />
+        <ComponentButton content={"NEXT"} onClick={() => handleClick()} />
       </Wrapper>
     </Container>
   );

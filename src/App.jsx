@@ -25,7 +25,10 @@ const App = () => {
         <Route path="/list" element={<List />} />
         <Route path="/lists" element={<Lists />} />
         <Route path="/create" element={<CreateList />} />
-        <Route path="/create/title" element={<ListTitle />} />
+        <Route
+          path="/create/title"
+          element={<ListTitle addAnswer={addAnswer} />}
+        />
         <Route
           path="/create/question1"
           element={<Question1 addAnswer={addAnswer} />}
