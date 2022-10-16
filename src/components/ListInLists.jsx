@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.div``;
@@ -24,6 +24,16 @@ const Date = styled.span`
 `;
 
 const ListInLists = () => {
+  // get the obj from localStorage called travelItems
+  // Iterate over it
+  // Set the link to the title(later)
+  const [travelItemList, setTravelItemList] = useState(
+    JSON.parse(localStorage.getItem("travelItems")) || []
+  );
+  // need ListTitle
+  const travelLists = travelItemList.map((item) => {
+    console.log(item.travelList);
+  });
   return (
     <Container>
       <ListWrapper>
@@ -31,6 +41,7 @@ const ListInLists = () => {
           <ListTitle>Travel abroad</ListTitle>
           <Date>today</Date>
         </List>
+        ;
       </ListWrapper>
     </Container>
   );
