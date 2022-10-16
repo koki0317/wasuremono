@@ -26,6 +26,8 @@ const List = () => {
     localStorage.setItem("items", JSON.stringify(itemList));
   }, [itemList]);
 
+  console.log(itemList);
+
   return (
     <Container>
       <Wrapper>

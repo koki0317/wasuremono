@@ -27,6 +27,8 @@ const SingleList = () => {
   useEffect(() => {
     localStorage.setItem("travelItems", JSON.stringify(itemList));
   }, [itemList]);
+
+  const items = itemList[0].travelList;
   return (
     <Container>
       <Wrapper>
@@ -35,7 +37,14 @@ const SingleList = () => {
         </Link>
         <Title>Travel items</Title>
         <ListForm itemList={itemList} setItemList={setItemList} />
-        <ItemList itemList={itemList} setItemList={setItemList} />
+        {Object.entries(items).map((item) => (
+          <ItemList
+            content={item[1]}
+            key={item[0]}
+            itemList={itemList}
+            setItemList={setItemList}
+          />
+        ))}
       </Wrapper>
     </Container>
   );

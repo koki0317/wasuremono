@@ -47,7 +47,7 @@ const ButtonRemove = styled.button`
   height: 30px;
 `;
 
-const ItemList = ({ itemList, setItemList }) => {
+const ItemList = ({ itemList, setItemList, content }) => {
   const handleDelete = (id) => {
     setItemList(itemList.filter((item) => item.id !== id));
   };

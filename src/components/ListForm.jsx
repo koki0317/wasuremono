@@ -47,7 +47,7 @@ const ListForm = ({ itemList, setItemList }) => {
     ]);
     setInputText("");
   };
-  console.log(itemList);
+  // console.log(itemList);
 
   const handleChange = (e) => {
     setInputText(e.target.value);
