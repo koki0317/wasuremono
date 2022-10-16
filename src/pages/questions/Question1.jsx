@@ -44,7 +44,7 @@ const Question1 = ({ addAnswer }) => {
             onClick={() => addAnswer("International")}
           />
         </Link>
-        <Link to="/create">
+        <Link to="/create/title">
           <ComponentButton
             backgroundColor={"rgba(0, 0, 0, 0.7)"}
             content={"Back"}

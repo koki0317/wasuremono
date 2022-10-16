@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import ComponentButton from "../components/Button";
 
@@ -41,7 +42,15 @@ const ListTitle = ({ addAnswer }) => {
       <Wrapper>
         <Title>Name the list title.</Title>
         <Input placeholder="List name" onChange={handleChange} />
-        <ComponentButton content={"NEXT"} onClick={() => handleClick()} />
+        <Link to="/create/question1">
+          <ComponentButton content={"NEXT"} onClick={() => handleClick()} />
+        </Link>
+        <Link to="/create/">
+          <ComponentButton
+            backgroundColor={"rgba(0, 0, 0, 0.7)"}
+            content={"Back"}
+          />
+        </Link>
       </Wrapper>
     </Container>
   );
