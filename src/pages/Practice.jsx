@@ -1,7 +1,7 @@
-import CreateSingleList from "../components/CreateSingleList";
+import SignIn from "../components/SignIn";
 
 const Practice = () => {
-  return <CreateSingleList />;
+  return <SignIn />;
 };
 
 export default Practice;

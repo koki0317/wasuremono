@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { db } from "../firebase";
 
@@ -7,25 +7,12 @@ const Form = styled.form``;
 const Input = styled.input``;
 
 const CreateSingleList = () => {
-  const [item, setItem] = useState("");
-  const setItems = (e) => {
-    e.preventDefault();
-
-    db.collection("items").add({
-      item: item,
-    });
-    setItem("");
-  };
+  const [items, setItems] = useState("");
 
   return (
     <Container>
-      <Form onSubmit={setItems}>
-        <Input
-          placeholder="Item name"
-          type="text"
-          onChange={(e) => setItem(e.target.value)}
-          value={item}
-        />
+      <Form>
+        <Input placeholder="Item name" type="text" />
       </Form>
     </Container>
   );
