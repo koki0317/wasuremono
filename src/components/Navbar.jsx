@@ -39,8 +39,8 @@ const Avatar = styled.img`
 const Navbar = () => {
   const [user] = useAuthState(auth);
 
-  const { photoURL } = auth.currentUser;
-  console.log(photoURL);
+  const { photoURL } = auth.currentUser || "";
+
   return (
     <Container>
       <Wrapper>
