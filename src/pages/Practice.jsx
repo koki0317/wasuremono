@@ -1,15 +1,11 @@
-import { InputLabel, NativeSelect } from "@mui/material";
 import React, { useEffect, useState } from "react";
 
 import styled from "styled-components";
-import Avatar from "../components/Avatar";
+
+import LoginImage from "../components/LoginImage";
 
 const Practice = () => {
-  return (
-    <>
-      <Avatar />
-    </>
-  );
+  return <div>hello</div>;
 };
 
 export default Practice;

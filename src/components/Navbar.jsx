@@ -3,9 +3,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import SignIn from "./SignIn";
+import LoginImage from "./LoginImage";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase";
-import SignOut from "./SignOut";
 
 const Container = styled.div`
   background-color: rgba(108, 99, 255, 0.8);
@@ -30,16 +30,8 @@ const Icon = styled.div`
   display: flex;
 `;
 
-const Avatar = styled.img`
-  border-radius: 50%;
-  height: 30px;
-  width: 30px;
-`;
-
 const Navbar = () => {
   const [user] = useAuthState(auth);
-
-  const { photoURL } = auth.currentUser || "";
 
   return (
     <Container>
@@ -49,7 +41,7 @@ const Navbar = () => {
             <Home />
           </Icon>
         </Link>
-        <Text>{user ? <Avatar src={photoURL} alt="" /> : <SignIn />}</Text>
+        <Text>{user ? <LoginImage /> : <SignIn />}</Text>
       </Wrapper>
     </Container>
   );
