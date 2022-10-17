@@ -48,7 +48,7 @@ const PositionedMenu = () => {
           horizontal: "left",
         }}
       >
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem onClick={() => auth.signOut(auth)}>Logout</MenuItem>
       </Menu>
     </>
   );
