@@ -4,7 +4,7 @@ import firebase from "firebase/compat/app";
 import { auth } from "../firebase";
 
 const Container = styled.div``;
-const Button = styled.h3``;
+const Login = styled.h3``;
 
 const SignIn = () => {
   const signInWithGoogle = () => {
@@ -13,7 +13,7 @@ const SignIn = () => {
   };
   return (
     <Container>
-      <Button onClick={signInWithGoogle}>Login</Button>
+      <Login onClick={signInWithGoogle}>Login</Login>
     </Container>
   );
 };

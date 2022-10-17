@@ -3,6 +3,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import SignIn from "./SignIn";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../firebase";
+import SignOut from "./SignOut";
 
 const Container = styled.div`
   background-color: rgba(108, 99, 255, 0.8);
@@ -27,6 +30,8 @@ const Icon = styled.div`
 `;
 
 const Navbar = () => {
+  const [user] = useAuthState(auth);
+
   return (
     <Container>
       <Wrapper>
@@ -35,9 +40,7 @@ const Navbar = () => {
             <Home />
           </Icon>
         </Link>
-        <Text>
-          <SignIn />
-        </Text>
+        <Text>{user ? <SignOut /> : <SignIn />}</Text>
       </Wrapper>
     </Container>
   );
