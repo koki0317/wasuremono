@@ -14,7 +14,9 @@ const Item = styled.div`
   width: 80%;
 `;
 const Text = styled.div``;
-const Span = styled.span``;
+const Span = styled.span`
+  padding-left: 5px;
+`;
 const ContentWrapper = styled.div`
   display: flex;
   justify-content: space-between;
