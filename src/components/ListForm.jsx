@@ -1,6 +1,8 @@
 import { AddCircleOutlineOutlined } from "@mui/icons-material";
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
+import { auth, db } from "../firebase";
+import firebase from "firebase/compat/app";
 
 const Container = styled.div``;
 const Form = styled.form`
@@ -37,28 +39,23 @@ const ListForm = ({ itemList, setItemList }) => {
     e.preventDefault();
     if (inputText === "") return;
 
-    //add the item
-    setItemList([
-      ...itemList,
-      {
-        id: itemList.length,
-        text: inputText,
-      },
-    ]);
+    const { uid } = auth.currentUser;
+
+    db.collection("items").add({
+      name: inputText,
+      uid,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+    });
     setInputText("");
   };
-  // console.log(itemList);
 
-  const handleChange = (e) => {
-    setInputText(e.target.value);
-  };
   return (
     <Container>
       <FormWrapper>
         <Form onSubmit={handleSubmit}>
           <Input
             type="text"
-            onChange={handleChange}
+            onChange={(e) => setInputText(e.target.value)}
             value={inputText}
             placeholder="item name"
             ref={inputRef}

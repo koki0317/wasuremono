@@ -2,7 +2,7 @@ import { RemoveCircleOutlineOutlined } from "@mui/icons-material";
 import React from "react";
 import styled from "styled-components";
 import { db } from "../firebase";
-import { doc, deleteDoc } from "firebase/firestore";
+import { motion } from "framer-motion";
 
 const Container = styled.div`
   display: flex;
@@ -37,16 +37,22 @@ const SingleItem = ({ content, item }) => {
   return (
     <Container>
       <Item>
-        <ContentWrapper>
-          <Text>
-            <Span>{content}</Span>
-          </Text>
-          <ButtonRemove>
-            <RemoveCircleOutlineOutlined
-              onClick={() => db.collection("items").doc(item).delete()}
-            />
-          </ButtonRemove>
-        </ContentWrapper>
+        <motion.div
+          initial={{ x: "-100vw" }}
+          animate={{ x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <ContentWrapper>
+            <Text>
+              <Span>{content}</Span>
+            </Text>
+            <ButtonRemove>
+              <RemoveCircleOutlineOutlined
+                onClick={() => db.collection("items").doc(item).delete()}
+              />
+            </ButtonRemove>
+          </ContentWrapper>
+        </motion.div>
       </Item>
     </Container>
   );

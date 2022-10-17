@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import ItemList from "../components/ItemList";
 import ListForm from "../components/ListForm";
+import SingleItem from "../components/SingleItem";
 
 const Container = styled.div``;
 
@@ -38,7 +38,7 @@ const SingleList = () => {
         <Title>Travel items</Title>
         <ListForm itemList={itemList} setItemList={setItemList} />
         {Object.entries(items).map((item) => (
-          <ItemList
+          <SingleItem
             content={item[1]}
             key={item[0]}
             itemList={itemList}
