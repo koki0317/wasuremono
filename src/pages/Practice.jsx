@@ -1,3 +1,4 @@
+import { doc } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -32,7 +33,7 @@ const Practice = () => {
       .orderBy("createdAt")
       .limit(50)
       .onSnapshot((snapshot) => {
-        setItems(snapshot.docs.map((doc) => doc.data()));
+        setItems(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
       });
   }, []);
   return (
@@ -46,7 +47,7 @@ const Practice = () => {
         <ItemWrapper>
           {items.map(({ id, name, uid }) => (
             <SingleItemWrapper key={id}>
-              <SingleItem content={name} />
+              <SingleItem content={name} item={id} />
             </SingleItemWrapper>
           ))}
         </ItemWrapper>

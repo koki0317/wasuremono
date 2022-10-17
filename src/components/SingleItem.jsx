@@ -1,6 +1,8 @@
 import { RemoveCircleOutlineOutlined } from "@mui/icons-material";
 import React from "react";
 import styled from "styled-components";
+import { db } from "../firebase";
+import { doc, deleteDoc } from "firebase/firestore";
 
 const Container = styled.div`
   display: flex;
@@ -31,7 +33,7 @@ const ButtonRemove = styled.button`
   height: 30px;
 `;
 
-const SingleItem = ({ content }) => {
+const SingleItem = ({ content, item }) => {
   return (
     <Container>
       <Item>
@@ -40,7 +42,9 @@ const SingleItem = ({ content }) => {
             <Span>{content}</Span>
           </Text>
           <ButtonRemove>
-            <RemoveCircleOutlineOutlined />
+            <RemoveCircleOutlineOutlined
+              onClick={() => db.collection("items").doc(item).delete()}
+            />
           </ButtonRemove>
         </ContentWrapper>
       </Item>
