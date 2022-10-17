@@ -12,6 +12,7 @@ import Question3 from "./pages/questions/Question3";
 import Practice from "./pages/Practice";
 import SingleList from "./pages/SingleList";
 import ListTitle from "./pages/ListTitle";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   const [answer, setAnswer] = useState([]);
@@ -21,6 +22,7 @@ const App = () => {
   console.log(answer);
   return (
     <BrowserRouter>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Top />} />
         <Route path="/list" element={<List />} />

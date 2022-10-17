@@ -53,7 +53,7 @@ const ContentWrapper = styled.div`
 const Box = styled.div`
   padding-top: 30px;
   background-color: #6c63ff;
-  margin-top: 50px;
+  margin-top: 15px;
   border-radius: 30px;
   height: 80vh;
 `;

@@ -4,7 +4,7 @@ import firebase from "firebase/compat/app";
 import { auth } from "../firebase";
 
 const Container = styled.div``;
-const Button = styled.button``;
+const Button = styled.h3``;
 
 const SignIn = () => {
   const signInWithGoogle = () => {
