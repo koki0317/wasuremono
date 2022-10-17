@@ -15,6 +15,7 @@ const Text = styled.h3`
   color: white;
   text-align: right;
   font-size: 16px;
+  display: flex;
 `;
 
 const Wrapper = styled.div`
@@ -29,9 +30,17 @@ const Icon = styled.div`
   display: flex;
 `;
 
+const Avatar = styled.img`
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+`;
+
 const Navbar = () => {
   const [user] = useAuthState(auth);
 
+  const { photoURL } = auth.currentUser;
+  console.log(photoURL);
   return (
     <Container>
       <Wrapper>
@@ -40,7 +49,7 @@ const Navbar = () => {
             <Home />
           </Icon>
         </Link>
-        <Text>{user ? <SignOut /> : <SignIn />}</Text>
+        <Text>{user ? <Avatar src={photoURL} alt="" /> : <SignIn />}</Text>
       </Wrapper>
     </Container>
   );
