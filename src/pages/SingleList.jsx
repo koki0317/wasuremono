@@ -4,6 +4,7 @@ import styled from "styled-components";
 import ListForm from "../components/ListForm";
 import SingleItem from "../components/SingleItem";
 import { db } from "../firebase";
+import { collection, getDocs } from "firebase/firestore";
 
 const Container = styled.div``;
 
@@ -25,15 +26,14 @@ const SingleItemWrapper = styled.div``;
 const SingleList = () => {
   const [travelItems, setTravelItems] = useState([]);
 
+  const travelItemsCollectionRef = collection(db, "travelItems");
+
   useEffect(() => {
-    db.collection("travelItems")
-      .orderBy("createdAt")
-      .limit(50)
-      .onSnapshot((snapshot) => {
-        setTravelItems(
-          snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
-        );
-      });
+    const getTravelItems = async () => {
+      const data = await getDocs(travelItemsCollectionRef);
+      setTravelItems(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+    getTravelItems();
   }, []);
   return (
     <Container>
