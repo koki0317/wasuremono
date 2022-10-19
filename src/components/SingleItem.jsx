@@ -35,7 +35,7 @@ const ButtonRemove = styled.button`
   height: 30px;
 `;
 
-const SingleItem = ({ content, item }) => {
+const SingleItem = ({ content, item, tableName }) => {
   return (
     <Container>
       <Item>
@@ -50,7 +50,7 @@ const SingleItem = ({ content, item }) => {
             </Text>
             <ButtonRemove>
               <RemoveCircleOutlineOutlined
-                onClick={() => db.collection("items").doc(item).delete()}
+                onClick={() => db.collection(`${tableName}`).doc(item).delete()}
               />
             </ButtonRemove>
           </ContentWrapper>

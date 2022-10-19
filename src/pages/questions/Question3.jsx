@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import ComponentButton from "../../components/Button";
 import DelayLink from "../../components/DelayLink";
+import { auth, db } from "../../firebase";
+import firebase from "firebase/compat/app";
 
 const Container = styled.div`
   display: flex;
@@ -38,23 +40,17 @@ const Question3 = ({ addAnswer, answer }) => {
     answer.pop();
   };
 
-  const [lists, setLists] = useState([]);
+  const path = answer[0].replace(" ", "-");
 
   const addList = () => {
-    setLists([
-      ...lists,
-      {
-        id: lists.length,
-        travelList: baseList,
-      },
-    ]);
+    const { uid } = auth.currentUser;
+
+    db.collection("travelItems").add({
+      travelItem: baseList,
+      uid,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+    });
   };
-
-  useEffect(() => {
-    localStorage.setItem("travelItems", JSON.stringify(lists));
-  }, [lists]);
-
-  const path = answer[0].replace(" ", "-");
 
   // Create a base list in object
   // if choice is selected, autogenerate the list

@@ -26,7 +26,7 @@ const Button = styled.button`
 `;
 const FormWrapper = styled.div``;
 
-const ListForm = ({ itemList, setItemList }) => {
+const ListForm = () => {
   const [inputText, setInputText] = useState("");
 
   const inputRef = useRef();

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import ListForm from "../components/ListForm";
 import SingleItem from "../components/SingleItem";
+import { db } from "../firebase";
 
 const Container = styled.div``;
 
@@ -19,16 +20,21 @@ const Wrapper = styled.div`
   text-align: center;
 `;
 
+const SingleItemWrapper = styled.div``;
+
 const SingleList = () => {
-  const [itemList, setItemList] = useState(
-    JSON.parse(localStorage.getItem("travelItems")) || []
-  );
+  const [travelItems, setTravelItems] = useState([]);
 
   useEffect(() => {
-    localStorage.setItem("travelItems", JSON.stringify(itemList));
-  }, [itemList]);
-
-  const items = itemList[0].travelList;
+    db.collection("travelItems")
+      .orderBy("createdAt")
+      .limit(50)
+      .onSnapshot((snapshot) => {
+        setTravelItems(
+          snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+        );
+      });
+  }, []);
   return (
     <Container>
       <Wrapper>
@@ -36,14 +42,12 @@ const SingleList = () => {
           <Image src="undraw_To_do_list_re_9nt7.png" />
         </Link>
         <Title>Travel items</Title>
-        <ListForm itemList={itemList} setItemList={setItemList} />
-        {Object.entries(items).map((item) => (
-          <SingleItem
-            content={item[1]}
-            key={item[0]}
-            itemList={itemList}
-            setItemList={setItemList}
-          />
+        <ListForm />
+        {console.log(travelItems)}
+        {Object.values(travelItems[0].travelItem).map((item, index) => (
+          <SingleItemWrapper key={index}>
+            <SingleItem content={item} item={index} tableName={"travelItems"} />
+          </SingleItemWrapper>
         ))}
       </Wrapper>
     </Container>

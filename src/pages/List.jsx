@@ -42,7 +42,7 @@ const List = () => {
         <ItemWrapper>
           {items.map(({ id, name, uid }) => (
             <SingleItemWrapper key={id}>
-              <SingleItem content={name} item={id} />
+              <SingleItem content={name} item={id} tableName={"items"} />
             </SingleItemWrapper>
           ))}
         </ItemWrapper>
