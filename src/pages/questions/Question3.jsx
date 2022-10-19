@@ -7,7 +7,7 @@ import DelayLink from "../../components/DelayLink";
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  height: 79vh;
+  height: 73vh;
   padding-top: 100px;
 `;
 const Title = styled.h1`

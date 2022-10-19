@@ -7,7 +7,7 @@ import ComponentButton from "../../components/Button";
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  height: 79vh;
+  height: 73vh;
   padding-top: 100px;
 `;
 const Wrapper = styled.div`

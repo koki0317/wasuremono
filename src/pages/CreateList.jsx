@@ -9,7 +9,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   padding-top: 100px;
-  height: 79vh;
+  height: 73vh;
   background: url("undraw_i_can_fly_7egl.png");
   background-size: cover;
   background-position: center;

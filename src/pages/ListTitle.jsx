@@ -6,7 +6,7 @@ import ComponentButton from "../components/Button";
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  height: 79vh;
+  height: 73vh;
   padding-top: 100px;
 `;
 const Title = styled.h1`
@@ -51,7 +51,7 @@ const ListTitle = ({ addAnswer }) => {
         <Link to="/create/question1">
           <ComponentButton content={"NEXT"} onClick={() => handleClick()} />
         </Link>
-        <Link to="/create/">
+        <Link to="/create">
           <ComponentButton
             backgroundColor={"rgba(0, 0, 0, 0.7)"}
             content={"Back"}
