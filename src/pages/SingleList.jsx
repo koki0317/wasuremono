@@ -23,6 +23,10 @@ const Wrapper = styled.div`
 
 const SingleItemWrapper = styled.div``;
 
+const TravelItemsWrapper = styled.div`
+  margin-top: 30px;
+`;
+
 const SingleList = () => {
   const [travelItems, setTravelItems] = useState([]);
 
@@ -53,15 +57,17 @@ const SingleList = () => {
         </Link>
         <Title>Travel items</Title>
         <ListForm />
-        {travelItems.map(({ travelItem, id }) => (
-          <SingleItemWrapper key={id}>
-            <SingleItem
-              content={travelItem}
-              item={id}
-              tableName={"travelItems"}
-            />
-          </SingleItemWrapper>
-        ))}
+        <TravelItemsWrapper>
+          {travelItems.map(({ travelItem, id }) => (
+            <SingleItemWrapper key={id}>
+              <SingleItem
+                content={travelItem}
+                item={id}
+                tableName={"travelItems"}
+              />
+            </SingleItemWrapper>
+          ))}
+        </TravelItemsWrapper>
       </Wrapper>
     </Container>
   );
