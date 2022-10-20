@@ -4,6 +4,7 @@ import styled from "styled-components";
 import ListForm from "../components/ListForm";
 import { db } from "../firebase";
 import { collection, getDocs } from "firebase/firestore";
+import SingleItem from "../components/SingleItem";
 
 const Container = styled.div``;
 
@@ -52,11 +53,15 @@ const SingleList = () => {
         </Link>
         <Title>Travel items</Title>
         <ListForm />
-        {/* {Object.values(travelItems[0].travelItem).map((item, { id }) => (
+        {travelItems.map(({ travelItem, id }) => (
           <SingleItemWrapper key={id}>
-            <SingleItem content={item} item={id} tableName={"travelItems"} />
+            <SingleItem
+              content={travelItem}
+              item={id}
+              tableName={"travelItems"}
+            />
           </SingleItemWrapper>
-        ))} */}
+        ))}
       </Wrapper>
     </Container>
   );
