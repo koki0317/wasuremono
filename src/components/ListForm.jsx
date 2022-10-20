@@ -26,7 +26,7 @@ const Button = styled.button`
 `;
 const FormWrapper = styled.div``;
 
-const ListForm = () => {
+const ListForm = ({ collectionItem }) => {
   const [inputText, setInputText] = useState("");
 
   const inputRef = useRef();
@@ -41,7 +41,7 @@ const ListForm = () => {
 
     const { uid } = auth.currentUser;
 
-    db.collection("items").add({
+    db.collection(`${collectionItem}`).add({
       name: inputText,
       uid,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),

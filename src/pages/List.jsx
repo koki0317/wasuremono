@@ -38,7 +38,7 @@ const List = () => {
           <Image src="undraw_To_do_list_re_9nt7.png" />
         </Link>
         <Title>Travel items</Title>
-        <ListForm />
+        <ListForm collectionItem={"items"} />
         <ItemWrapper>
           {items.map(({ id, name, uid }) => (
             <SingleItemWrapper key={id}>
