@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import ListForm from "../components/ListForm";
-import SingleItem from "../components/SingleItem";
 import { db } from "../firebase";
 import { collection, getDocs } from "firebase/firestore";
 
@@ -42,6 +41,7 @@ const SingleList = () => {
       setTravelItems(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
     getTravelItems();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -52,12 +52,11 @@ const SingleList = () => {
         </Link>
         <Title>Travel items</Title>
         <ListForm />
-        {console.log(travelItems)}
-        {Object.values(travelItems[0].travelItem).map((item, { id }) => (
+        {/* {Object.values(travelItems[0].travelItem).map((item, { id }) => (
           <SingleItemWrapper key={id}>
             <SingleItem content={item} item={id} tableName={"travelItems"} />
           </SingleItemWrapper>
-        ))}
+        ))} */}
       </Wrapper>
     </Container>
   );

@@ -45,10 +45,12 @@ const Question3 = ({ addAnswer, answer }) => {
   const addList = () => {
     const { uid } = auth.currentUser;
 
-    db.collection("travelItems").add({
-      travelItem: baseList,
-      uid,
-      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+    Object.values(baseList).map((item) => {
+      db.collection("travelItems").add({
+        travelItem: item,
+        uid,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+      });
     });
   };
 
