@@ -47,7 +47,7 @@ const Question3 = ({ addAnswer, answer }) => {
 
     Object.values(baseList).map((item) => {
       db.collection("travelItems").add({
-        travelItem: item,
+        name: item,
         uid,
         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       });
