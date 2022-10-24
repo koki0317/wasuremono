@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import ComponentButton from "../../components/Button";
@@ -53,15 +53,6 @@ const Question3 = ({ addAnswer, answer }) => {
       });
     });
   };
-
-  // Create a base list in object
-  // if choice is selected, autogenerate the list
-  // add some specific items to the base list, depending on the answer
-  // store its list to setList
-  // get the list number that goes into params
-  // display the list in lists/:id
-  // use List as component
-  // make the link delay
 
   return (
     <Container>
