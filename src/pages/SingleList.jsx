@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 import ListForm from "../components/ListForm";
 import { db } from "../firebase";
@@ -48,7 +48,7 @@ const SingleList = () => {
     // getTravelItems();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  console.log(travelItems);
+  const { id } = useParams();
 
   return (
     <Container>
@@ -56,7 +56,7 @@ const SingleList = () => {
         <Link to="/create/question3">
           <Image src="/images/undraw_To_do_list_re_9nt7.png" />
         </Link>
-        <Title>Travel items</Title>
+        <Title>Travel items {id}</Title>
         <ListForm collectionItem={"travelItems"} />
         <TravelItemsWrapper>
           {travelItems.map(({ name, id }) => (
