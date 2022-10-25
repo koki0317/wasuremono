@@ -32,8 +32,10 @@ const SingleList = () => {
 
   // const travelItemsCollectionRef = collection(db, "travelItems");
 
+  const { id } = useParams();
+
   useEffect(() => {
-    db.collection("travelItems")
+    db.collection(`travelItems${id}`)
       .orderBy("createdAt")
       .limit(50)
       .onSnapshot((snapshot) => {
@@ -48,7 +50,6 @@ const SingleList = () => {
     // getTravelItems();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  const { id } = useParams();
 
   return (
     <Container>
@@ -57,7 +58,7 @@ const SingleList = () => {
           <Image src="/images/undraw_To_do_list_re_9nt7.png" />
         </Link>
         <Title>Travel items {id}</Title>
-        <ListForm collectionItem={"travelItems"} />
+        <ListForm collectionItem={`travelItems${id}`} />
         <TravelItemsWrapper>
           {travelItems.map(({ name, id }) => (
             <SingleItemWrapper key={id}>

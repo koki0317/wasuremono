@@ -46,7 +46,7 @@ const Question3 = ({ addAnswer, answer }) => {
     const { uid } = auth.currentUser;
 
     Object.values(baseList).map((item) => {
-      db.collection("travelItems").add({
+      db.collection(`travelItems${path}`).add({
         name: item,
         uid,
         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
