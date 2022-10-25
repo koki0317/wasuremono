@@ -54,7 +54,7 @@ const SingleList = () => {
     <Container>
       <Wrapper>
         <Link to="/create/question3">
-          <Image src="undraw_To_do_list_re_9nt7.png" />
+          <Image src="/images/undraw_To_do_list_re_9nt7.png" />
         </Link>
         <Title>Travel items</Title>
         <ListForm collectionItem={"travelItems"} />

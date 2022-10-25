@@ -25,7 +25,7 @@ const ErrorPage = () => {
   return (
     <Container>
       <Wrapper>
-        <Image src="undraw_server_down_s4lk.png" />
+        <Image src="/images/undraw_server_down_s4lk.png" />
         <Message>The page doesn't exist.</Message>
         <Link to="/">
           <ComponentButton content={"Home"} />
