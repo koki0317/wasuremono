@@ -12,6 +12,7 @@ import Practice from "./pages/Practice";
 import SingleList from "./pages/SingleList";
 import ListTitle from "./pages/ListTitle";
 import Navbar from "./components/Navbar";
+import ErrorPage from "./pages/ErrorPage";
 
 const App = () => {
   const [answer, setAnswer] = useState([]);
@@ -45,6 +46,7 @@ const App = () => {
         />
         <Route path="/lists/:id" element={<SingleList />} />
         <Route path="/practice" element={<Practice />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>
