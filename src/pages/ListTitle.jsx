@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import ComponentButton from "../components/Button";
@@ -43,11 +43,17 @@ const ListTitle = ({ addAnswer }) => {
   const handleClick = () => {
     addAnswer(inputText);
   };
+
+  const inputRef = useRef();
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
   return (
     <Container>
       <Wrapper>
         <Title>Name the list title.</Title>
-        <Input placeholder="List name" onChange={handleChange} />
+        <Input ref={inputRef} placeholder="List name" onChange={handleChange} />
         <Link to="/create/question1">
           <ComponentButton
             content={"NEXT"}
