@@ -42,7 +42,7 @@ const SingleList = () => {
           snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
         );
         // snapshot.docs.forEach((snap) => {
-        //   console.log(snap.data().name);
+        //   console.log(snap.id);
         // });
       });
     // const getTravelItems = async () => {
@@ -61,12 +61,16 @@ const SingleList = () => {
         <Link to="/create/question3">
           <Image src="/images/undraw_To_do_list_re_9nt7.png" />
         </Link>
-        <Title>Travel items {id}</Title>
-        <ListForm collectionItem={"travelItem"} />
+        <Title>Travel items</Title>
+        <ListForm collectionItem={"travelItems"} />
         <TravelItemsWrapper>
-          {items.map((item, { id }) => (
-            <SingleItemWrapper key={id}>
-              <SingleItem content={item} item={id} tableName={"travelItems"} />
+          {items.map((item, index) => (
+            <SingleItemWrapper key={index}>
+              <SingleItem
+                content={item}
+                item={index}
+                tableName={"travelItems"}
+              />
             </SingleItemWrapper>
           ))}
         </TravelItemsWrapper>
