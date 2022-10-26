@@ -1,8 +1,7 @@
 import { AddCircleOutlineOutlined } from "@mui/icons-material";
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import { auth, db } from "../firebase";
-import firebase from "firebase/compat/app";
+import { db } from "../firebase";
 import { arrayUnion, doc, onSnapshot, updateDoc } from "firebase/firestore";
 import { useParams } from "react-router-dom";
 

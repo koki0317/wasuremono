@@ -3,7 +3,6 @@ import React from "react";
 import styled from "styled-components";
 import { db } from "../firebase";
 import { motion } from "framer-motion";
-import firebase from "firebase/compat/app";
 import { arrayRemove, doc, onSnapshot, updateDoc } from "firebase/firestore";
 import { useParams } from "react-router-dom";
 

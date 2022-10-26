@@ -21,7 +21,7 @@ const List = styled.div`
 `;
 
 const ListTitle = styled.h3`
-  color: #6c63ff;
+  color: #585858;
 `;
 const Date = styled.span`
   background-color: #6c63ff;

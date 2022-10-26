@@ -10,6 +10,7 @@ const Container = styled.div`
 const Title = styled.h1`
   text-align: center;
   margin-top: 15px;
+  color: #585858;
 `;
 
 const Image = styled.img`
