@@ -26,15 +26,7 @@ const Wrapper = styled.div`
 `;
 
 const Question3 = ({ addAnswer, answer }) => {
-  const baseList = {
-    1: "Travel guide",
-    2: "snacks and drinks",
-    3: "Phone charger",
-    4: "Toothbrush and paste",
-    5: "Soap",
-    6: "Shaver",
-    7: "T-Shirt",
-  };
+  const baseList = ["Travel guide", "snacks and drinks", "Phone charger"];
 
   const deleteItem = () => {
     answer.pop();
@@ -45,12 +37,10 @@ const Question3 = ({ addAnswer, answer }) => {
   const addList = () => {
     const { uid } = auth.currentUser;
 
-    Object.values(baseList).map((item) => {
-      db.collection(`travelItems${path}`).add({
-        name: item,
-        uid,
-        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-      });
+    db.collection("travelItems").add({
+      name: baseList,
+      uid,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
     });
   };
 

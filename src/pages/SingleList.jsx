@@ -3,7 +3,6 @@ import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 import ListForm from "../components/ListForm";
 import { db } from "../firebase";
-import { collection, getDocs } from "firebase/firestore";
 import SingleItem from "../components/SingleItem";
 
 const Container = styled.div``;
@@ -35,13 +34,16 @@ const SingleList = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    db.collection(`travelItems${id}`)
+    db.collection("travelItems")
       .orderBy("createdAt")
       .limit(50)
       .onSnapshot((snapshot) => {
         setTravelItems(
           snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
         );
+        // snapshot.docs.forEach((snap) => {
+        //   console.log(snap.data().name);
+        // });
       });
     // const getTravelItems = async () => {
     //   const data = await getDocs(travelItemsCollectionRef);
@@ -51,6 +53,8 @@ const SingleList = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const items = travelItems[0].name;
+
   return (
     <Container>
       <Wrapper>
@@ -58,11 +62,11 @@ const SingleList = () => {
           <Image src="/images/undraw_To_do_list_re_9nt7.png" />
         </Link>
         <Title>Travel items {id}</Title>
-        <ListForm collectionItem={`travelItems${id}`} />
+        <ListForm collectionItem={"travelItem"} />
         <TravelItemsWrapper>
-          {travelItems.map(({ name, id }) => (
+          {items.map((item, { id }) => (
             <SingleItemWrapper key={id}>
-              <SingleItem content={name} item={id} tableName={"travelItems"} />
+              <SingleItem content={item} item={id} tableName={"travelItems"} />
             </SingleItemWrapper>
           ))}
         </TravelItemsWrapper>
