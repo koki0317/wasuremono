@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { auth, db } from "../firebase";
 import firebase from "firebase/compat/app";
-import { arrayUnion, doc, updateDoc } from "firebase/firestore";
+import { arrayUnion, doc, onSnapshot, updateDoc } from "firebase/firestore";
 import { useParams } from "react-router-dom";
 
 const Container = styled.div``;
@@ -50,10 +50,14 @@ const ListForm = () => {
       "travelItems",
       id.includes("-") ? id.replace("-", " ") : id
     );
+
+    // onSnapshot(travelItemsRef, (snapshot) => {
+    //   console.log(snapshot.data());
+    // });
+
     updateDoc(travelItemsRef, {
       name: arrayUnion(`${inputText}`),
     });
-
     setInputText("");
   };
 

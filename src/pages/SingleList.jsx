@@ -49,6 +49,8 @@ const SingleList = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  console.log(travelItems);
+
   return (
     <Container>
       <Wrapper>

@@ -20,7 +20,9 @@ const List = styled.div`
   border-radius: 3px;
 `;
 
-const ListTitle = styled.h3``;
+const ListTitle = styled.h3`
+  color: #6c63ff;
+`;
 const Date = styled.span`
   background-color: #6c63ff;
   color: white;
@@ -57,6 +59,7 @@ const ListInLists = () => {
               to={`/lists/${
                 item.id.includes(" ") ? item.id.replace(" ", "-") : item.id
               }`}
+              style={{ textDecoration: "none" }}
             >
               <ListTitle>{item.id}</ListTitle>
             </Link>
