@@ -52,8 +52,8 @@ const ListInLists = () => {
 
   return (
     <Container>
-      {travelItems.map((item) => (
-        <ListWrapper>
+      {travelItems.map((item, index) => (
+        <ListWrapper key={index}>
           <List>
             <Link
               to={`/lists/${
