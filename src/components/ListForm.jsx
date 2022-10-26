@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { auth, db } from "../firebase";
 import firebase from "firebase/compat/app";
+import { arrayUnion, doc, updateDoc } from "firebase/firestore";
 
 const Container = styled.div``;
 const Form = styled.form`
@@ -47,11 +48,10 @@ const ListForm = ({ collectionItem }) => {
     //   createdAt: firebase.firestore.FieldValue.serverTimestamp(),
     // });
 
-    db.collection(`${collectionItem}`)
-      .doc("fLsMddBqwWkQtxoDtXnk")
-      .update({
-        name: firebase.firestore.FieldValue.arrayUnion(`${inputText}`),
-      });
+    const travelItemsRef = doc(db, `${collectionItem}`, "fLsMddBqwWkQtxoDtXnk");
+    updateDoc(travelItemsRef, {
+      name: arrayUnion(`${inputText}`),
+    });
 
     setInputText("");
   };
