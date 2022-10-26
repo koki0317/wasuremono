@@ -8,7 +8,6 @@ import Question1 from "./pages/questions/Question1";
 import Question2 from "./pages/questions/Question2";
 import { useState } from "react";
 import Question3 from "./pages/questions/Question3";
-import Practice from "./pages/Practice";
 import SingleList from "./pages/SingleList";
 import ListTitle from "./pages/ListTitle";
 import Navbar from "./components/Navbar";
@@ -45,7 +44,6 @@ const App = () => {
           element={<Question3 addAnswer={addAnswer} answer={answer} />}
         />
         <Route path="/lists/:id" element={<SingleList />} />
-        <Route path="/practice" element={<Practice />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
       <Footer />
