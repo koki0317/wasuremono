@@ -7,16 +7,19 @@ const Container = styled.div``;
 const ListWrapper = styled.div`
   display: flex;
   justify-content: center;
+  margin-bottom: 10px;
 `;
 const List = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid #6c63ff;
+  border: 1.5px solid #6c63ff;
   width: 90%;
   padding: 5px 10px;
+  border-radius: 3px;
 `;
-const ListTitle = styled.h2``;
+
+const ListTitle = styled.h3``;
 const Date = styled.span`
   background-color: #6c63ff;
   color: white;
