@@ -4,6 +4,7 @@ import styled from "styled-components";
 import ListForm from "../components/ListForm";
 import { db } from "../firebase";
 import SingleItem from "../components/SingleItem";
+import { doc, getDoc } from "firebase/firestore";
 
 const Container = styled.div``;
 
@@ -34,24 +35,21 @@ const SingleList = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    db.collection("travelItems")
-      .orderBy("createdAt")
-      .limit(50)
-      .onSnapshot((snapshot) => {
-        setTravelItems(snapshot.docs.map((doc) => ({ ...doc.data() })));
-        // snapshot.docs.forEach((snap) => {
-        //   console.log(snap.id);
-        // });
-      });
-    // const getTravelItems = async () => {
-    //   const data = await getDocs(travelItemsCollectionRef);
-    //   setTravelItems(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-    // };
-    // getTravelItems();
+    const getTravelItems = async () => {
+      const docRef = doc(
+        db,
+        "travelItems",
+        id.includes("-") ? id.replace("-", " ") : id
+      );
+
+      const docSnap = await getDoc(docRef);
+
+      setTravelItems(docSnap.data().name);
+    };
+
+    getTravelItems();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  // const items = travelItems[0].name;
 
   return (
     <Container>
@@ -59,18 +57,14 @@ const SingleList = () => {
         <Link to="/create/question3">
           <Image src="/images/undraw_To_do_list_re_9nt7.png" />
         </Link>
-        <Title>Travel items {id}</Title>
+        <Title>Travel items</Title>
         <ListForm collectionItem={"travelItems"} />
         <TravelItemsWrapper>
-          {/* {items.map((item, index) => (
+          {travelItems.map((item, index) => (
             <SingleItemWrapper key={index}>
-              <SingleItem
-                content={item}
-                item={index}
-                tableName={"travelItems"}
-              />
+              <SingleItem content={item} />
             </SingleItemWrapper>
-          ))} */}
+          ))}
         </TravelItemsWrapper>
       </Wrapper>
     </Container>

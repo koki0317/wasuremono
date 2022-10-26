@@ -56,8 +56,6 @@ const ListForm = ({ collectionItem }) => {
     setInputText("");
   };
 
-  console.log(db.collection(`${collectionItem}`).doc("fLsMddBqwWkQtxoDtXnk"));
-
   return (
     <Container>
       <FormWrapper>
