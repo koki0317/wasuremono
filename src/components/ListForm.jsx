@@ -39,7 +39,7 @@ const ListForm = ({ collectionItem }) => {
     e.preventDefault();
     if (inputText === "") return;
 
-    const { uid } = auth.currentUser;
+    // const { uid } = auth.currentUser;
 
     // db.collection(`${collectionItem}`).add({
     //   name: inputText,

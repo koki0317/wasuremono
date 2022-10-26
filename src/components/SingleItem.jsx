@@ -3,6 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import { db } from "../firebase";
 import { motion } from "framer-motion";
+import firebase from "firebase/compat/app";
 
 const Container = styled.div`
   display: flex;
@@ -35,7 +36,15 @@ const ButtonRemove = styled.button`
   height: 30px;
 `;
 
-const SingleItem = ({ content, item, tableName }) => {
+const SingleItem = ({ content, tableName }) => {
+  const deleteItem = () => {
+    db.collection(`${tableName}`)
+      .doc("fLsMddBqwWkQtxoDtXnk")
+      .update({
+        name: firebase.firestore.FieldValue.arrayRemove(content),
+      });
+  };
+
   return (
     <Container>
       <Item>
@@ -49,9 +58,7 @@ const SingleItem = ({ content, item, tableName }) => {
               <Span>{content}</Span>
             </Text>
             <ButtonRemove>
-              <RemoveCircleOutlineOutlined
-                onClick={() => db.collection(`${tableName}`).doc(item).delete()}
-              />
+              <RemoveCircleOutlineOutlined onClick={() => deleteItem()} />
             </ButtonRemove>
           </ContentWrapper>
         </motion.div>
