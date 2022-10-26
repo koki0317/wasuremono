@@ -58,7 +58,7 @@ const SingleList = () => {
           <Image src="/images/undraw_To_do_list_re_9nt7.png" />
         </Link>
         <Title>Travel items</Title>
-        <ListForm />
+        <ListForm setTravelItems={setTravelItems} />
         <TravelItemsWrapper>
           {travelItems.map((item, index) => (
             <SingleItemWrapper key={index}>

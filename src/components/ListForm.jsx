@@ -28,7 +28,7 @@ const Button = styled.button`
 `;
 const FormWrapper = styled.div``;
 
-const ListForm = () => {
+const ListForm = ({ setTravelItems }) => {
   const [inputText, setInputText] = useState("");
 
   const inputRef = useRef();
@@ -51,9 +51,9 @@ const ListForm = () => {
       id.includes("-") ? id.replace("-", " ") : id
     );
 
-    // onSnapshot(travelItemsRef, (snapshot) => {
-    //   console.log(snapshot.data());
-    // });
+    onSnapshot(travelItemsRef, (snapshot) => {
+      setTravelItems(snapshot.data().name);
+    });
 
     updateDoc(travelItemsRef, {
       name: arrayUnion(`${inputText}`),
