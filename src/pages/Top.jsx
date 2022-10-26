@@ -68,7 +68,7 @@ const Top = () => {
             <Title>Create your list!</Title>
             <SubTitle>Never forget your travel items</SubTitle>
 
-            <Link to={`/list`}>
+            <Link to={`/lists`}>
               <Button>START</Button>
             </Link>
           </ContentWrapper>
