@@ -28,9 +28,11 @@ const List = () => {
       .orderBy("createdAt")
       .limit(50)
       .onSnapshot((snapshot) => {
+        console.log(snapshot);
         setItems(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
       });
   }, []);
+
   return (
     <Container>
       <Wrapper>
