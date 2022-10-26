@@ -62,7 +62,7 @@ const SingleList = () => {
         <TravelItemsWrapper>
           {travelItems.map((item, index) => (
             <SingleItemWrapper key={index}>
-              <SingleItem content={item} />
+              <SingleItem content={item} setTravelItems={setTravelItems} />
             </SingleItemWrapper>
           ))}
         </TravelItemsWrapper>

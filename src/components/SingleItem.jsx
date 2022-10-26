@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { db } from "../firebase";
 import { motion } from "framer-motion";
 import firebase from "firebase/compat/app";
-import { arrayRemove, doc, updateDoc } from "firebase/firestore";
+import { arrayRemove, doc, onSnapshot, updateDoc } from "firebase/firestore";
 import { useParams } from "react-router-dom";
 
 const Container = styled.div`
@@ -38,7 +38,7 @@ const ButtonRemove = styled.button`
   height: 30px;
 `;
 
-const SingleItem = ({ content }) => {
+const SingleItem = ({ content, setTravelItems }) => {
   const { id } = useParams();
 
   const deleteItem = () => {
@@ -47,6 +47,11 @@ const SingleItem = ({ content }) => {
       "travelItems",
       id.includes("-") ? id.replace("-", " ") : id
     );
+
+    onSnapshot(travelItemsRef, (snapshot) => {
+      setTravelItems(snapshot.data().name);
+    });
+
     updateDoc(travelItemsRef, {
       name: arrayRemove(content),
     });
