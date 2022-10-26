@@ -26,9 +26,13 @@ const Button = styled.button`
   }
 `;
 
-const ComponentButton = ({ content, backgroundColor, onClick }) => {
+const ComponentButton = ({ content, backgroundColor, onClick, disabled }) => {
   return (
-    <Button onClick={onClick} style={{ backgroundColor: backgroundColor }}>
+    <Button
+      disabled={disabled}
+      onClick={onClick}
+      style={{ backgroundColor: backgroundColor }}
+    >
       {content}
     </Button>
   );

@@ -49,7 +49,11 @@ const ListTitle = ({ addAnswer }) => {
         <Title>Name the list title.</Title>
         <Input placeholder="List name" onChange={handleChange} />
         <Link to="/create/question1">
-          <ComponentButton content={"NEXT"} onClick={() => handleClick()} />
+          <ComponentButton
+            content={"NEXT"}
+            onClick={() => handleClick()}
+            disabled={!inputText ? true : false}
+          />
         </Link>
         <Link to="/create">
           <ComponentButton
