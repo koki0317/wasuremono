@@ -38,9 +38,7 @@ const SingleList = () => {
       .orderBy("createdAt")
       .limit(50)
       .onSnapshot((snapshot) => {
-        setTravelItems(
-          snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
-        );
+        setTravelItems(snapshot.docs.map((doc) => ({ ...doc.data() })));
         // snapshot.docs.forEach((snap) => {
         //   console.log(snap.id);
         // });
@@ -61,7 +59,7 @@ const SingleList = () => {
         <Link to="/create/question3">
           <Image src="/images/undraw_To_do_list_re_9nt7.png" />
         </Link>
-        <Title>Travel items</Title>
+        <Title>Travel items {id}</Title>
         <ListForm collectionItem={"travelItems"} />
         <TravelItemsWrapper>
           {items.map((item, index) => (

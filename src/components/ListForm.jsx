@@ -41,13 +41,22 @@ const ListForm = ({ collectionItem }) => {
 
     const { uid } = auth.currentUser;
 
-    db.collection(`${collectionItem}`).add({
-      name: inputText,
-      uid,
-      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-    });
+    // db.collection(`${collectionItem}`).add({
+    //   name: inputText,
+    //   uid,
+    //   createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+    // });
+
+    db.collection(`${collectionItem}`)
+      .doc("fLsMddBqwWkQtxoDtXnk")
+      .update({
+        name: firebase.firestore.FieldValue.arrayUnion(`${inputText}`),
+      });
+
     setInputText("");
   };
+
+  console.log(db.collection(`${collectionItem}`).doc("fLsMddBqwWkQtxoDtXnk"));
 
   return (
     <Container>
