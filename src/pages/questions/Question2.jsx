@@ -51,6 +51,7 @@ const Question2 = ({ addAnswer, answer }) => {
             id="demo-simple-select"
             label="Days"
             onChange={handleChange}
+            value={input}
           >
             <MenuItem value={1}>1</MenuItem>
             <MenuItem value={2}>2</MenuItem>
