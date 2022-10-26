@@ -30,8 +30,6 @@ const TravelItemsWrapper = styled.div`
 const SingleList = () => {
   const [travelItems, setTravelItems] = useState([]);
 
-  // const travelItemsCollectionRef = collection(db, "travelItems");
-
   const { id } = useParams();
 
   useEffect(() => {
@@ -58,7 +56,7 @@ const SingleList = () => {
           <Image src="/images/undraw_To_do_list_re_9nt7.png" />
         </Link>
         <Title>Travel items</Title>
-        <ListForm collectionItem={"travelItems"} />
+        <ListForm />
         <TravelItemsWrapper>
           {travelItems.map((item, index) => (
             <SingleItemWrapper key={index}>

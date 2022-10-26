@@ -5,6 +5,7 @@ import { db } from "../firebase";
 import { motion } from "framer-motion";
 import firebase from "firebase/compat/app";
 import { arrayRemove, doc, updateDoc } from "firebase/firestore";
+import { useParams } from "react-router-dom";
 
 const Container = styled.div`
   display: flex;
@@ -38,8 +39,14 @@ const ButtonRemove = styled.button`
 `;
 
 const SingleItem = ({ content }) => {
+  const { id } = useParams();
+
   const deleteItem = () => {
-    const travelItemsRef = doc(db, "travelItems", "fLsMddBqwWkQtxoDtXnk");
+    const travelItemsRef = doc(
+      db,
+      "travelItems",
+      id.includes("-") ? id.replace("-", " ") : id
+    );
     updateDoc(travelItemsRef, {
       name: arrayRemove(content),
     });

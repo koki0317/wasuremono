@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { auth, db } from "../firebase";
 import firebase from "firebase/compat/app";
 import { arrayUnion, doc, updateDoc } from "firebase/firestore";
+import { useParams } from "react-router-dom";
 
 const Container = styled.div``;
 const Form = styled.form`
@@ -27,7 +28,7 @@ const Button = styled.button`
 `;
 const FormWrapper = styled.div``;
 
-const ListForm = ({ collectionItem }) => {
+const ListForm = () => {
   const [inputText, setInputText] = useState("");
 
   const inputRef = useRef();
@@ -36,19 +37,19 @@ const ListForm = ({ collectionItem }) => {
     inputRef.current.focus();
   }, []);
 
+  const { id } = useParams();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (inputText === "") return;
 
     // const { uid } = auth.currentUser;
 
-    // db.collection(`${collectionItem}`).add({
-    //   name: inputText,
-    //   uid,
-    //   createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-    // });
-
-    const travelItemsRef = doc(db, `${collectionItem}`, "fLsMddBqwWkQtxoDtXnk");
+    const travelItemsRef = doc(
+      db,
+      "travelItems",
+      id.includes("-") ? id.replace("-", " ") : id
+    );
     updateDoc(travelItemsRef, {
       name: arrayUnion(`${inputText}`),
     });
