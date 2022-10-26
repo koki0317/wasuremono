@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { db } from "../firebase";
 import { motion } from "framer-motion";
 import firebase from "firebase/compat/app";
+import { arrayRemove, doc, updateDoc } from "firebase/firestore";
 
 const Container = styled.div`
   display: flex;
@@ -38,11 +39,11 @@ const ButtonRemove = styled.button`
 
 const SingleItem = ({ content, tableName }) => {
   const deleteItem = () => {
-    db.collection(`${tableName}`)
-      .doc("fLsMddBqwWkQtxoDtXnk")
-      .update({
-        name: firebase.firestore.FieldValue.arrayRemove(content),
-      });
+    const travelItemsRef = doc(db, "travelItems", "fLsMddBqwWkQtxoDtXnk");
+
+    updateDoc(travelItemsRef, {
+      name: arrayRemove(content),
+    });
   };
 
   return (
