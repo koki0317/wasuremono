@@ -53,7 +53,7 @@ const ListInLists = () => {
         <ListWrapper>
           <List>
             <ListTitle>{item.id}</ListTitle>
-            <Date>today</Date>
+            <Date>{item.createdAt.toDate().toLocaleDateString()}</Date>
           </List>
         </ListWrapper>
       ))}
