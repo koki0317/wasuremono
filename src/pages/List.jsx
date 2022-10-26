@@ -4,6 +4,7 @@ import styled from "styled-components";
 import ListForm from "../components/ListForm";
 import SingleItem from "../components/SingleItem";
 import { db } from "../firebase";
+import { collection, getDocs } from "firebase/firestore";
 
 const Container = styled.div``;
 const Wrapper = styled.div`
@@ -28,10 +29,27 @@ const List = () => {
       .orderBy("createdAt")
       .limit(50)
       .onSnapshot((snapshot) => {
-        console.log(snapshot);
         setItems(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
       });
   }, []);
+
+  // the code below can access to sub collection
+
+  const itemsRef = collection(
+    db,
+    "items",
+    "wj2VodedZCcJCg7s1YdD",
+    "travelItems"
+  );
+
+  const getTravelItems = async () => {
+    const data = await getDocs(itemsRef);
+
+    data.docs.forEach((doc) => {
+      console.log(doc.data());
+    });
+  };
+  getTravelItems();
 
   return (
     <Container>
