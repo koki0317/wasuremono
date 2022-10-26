@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { db } from "../firebase";
 
@@ -52,7 +53,13 @@ const ListInLists = () => {
       {travelItems.map((item) => (
         <ListWrapper>
           <List>
-            <ListTitle>{item.id}</ListTitle>
+            <Link
+              to={`/lists/${
+                item.id.includes(" ") ? item.id.replace(" ", "-") : item.id
+              }`}
+            >
+              <ListTitle>{item.id}</ListTitle>
+            </Link>
             <Date>{item.createdAt.toDate().toLocaleDateString()}</Date>
           </List>
         </ListWrapper>
