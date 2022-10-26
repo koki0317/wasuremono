@@ -51,7 +51,7 @@ const SingleList = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const items = travelItems[0].name;
+  // const items = travelItems[0].name;
 
   return (
     <Container>
@@ -62,7 +62,7 @@ const SingleList = () => {
         <Title>Travel items {id}</Title>
         <ListForm collectionItem={"travelItems"} />
         <TravelItemsWrapper>
-          {items.map((item, index) => (
+          {/* {items.map((item, index) => (
             <SingleItemWrapper key={index}>
               <SingleItem
                 content={item}
@@ -70,7 +70,7 @@ const SingleList = () => {
                 tableName={"travelItems"}
               />
             </SingleItemWrapper>
-          ))}
+          ))} */}
         </TravelItemsWrapper>
       </Wrapper>
     </Container>

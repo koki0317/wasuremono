@@ -37,10 +37,9 @@ const ButtonRemove = styled.button`
   height: 30px;
 `;
 
-const SingleItem = ({ content, tableName }) => {
+const SingleItem = ({ content }) => {
   const deleteItem = () => {
     const travelItemsRef = doc(db, "travelItems", "fLsMddBqwWkQtxoDtXnk");
-
     updateDoc(travelItemsRef, {
       name: arrayRemove(content),
     });
