@@ -35,7 +35,7 @@ const ListInLists = () => {
 
   useEffect(() => {
     db.collection("travelItems")
-      .orderBy("createdAt")
+      .orderBy("createdAt", "desc")
       .limit(50)
       .onSnapshot((snapshot) => {
         setTravelItems(
