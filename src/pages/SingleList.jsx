@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import ListForm from "../components/ListForm";
 import { db } from "../firebase";
@@ -17,8 +17,7 @@ const Title = styled.h1`
   margin: 5px 0;
   color: #585858;
   overflow-wrap: break-word;
-  width: 80%;
-  border: 1px solid magenta;
+  padding: 0 20px;
 `;
 
 const Wrapper = styled.div`
