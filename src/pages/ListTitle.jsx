@@ -49,13 +49,26 @@ const ListTitle = ({ addAnswer }) => {
   useEffect(() => {
     inputRef.current.focus();
   }, []);
+
+  // useEffect(() => {
+  //   const box = [];
+  //   const func = async () => {
+  //     const items = await db.collection("travelItems").get();
+  //     items.docs.map((doc) => {
+  //       box.push(doc.id);
+  //     });
+  //   };
+  //   func();
+  //   console.log(box);
+  // }, []);
+
   return (
     <Container>
       <Wrapper>
         <Title>Name the list title.</Title>
         <Input
           ref={inputRef}
-          maxlength="3"
+          maxlength="18"
           placeholder="List name"
           onChange={handleChange}
         />
