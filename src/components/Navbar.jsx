@@ -30,6 +30,16 @@ const Icon = styled.div`
   display: flex;
 `;
 
+const Lists = styled.h3`
+  color: white;
+  margin-right: 10px;
+`;
+
+const WrapperRight = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 const Navbar = () => {
   const [user] = useAuthState(auth);
 
@@ -41,7 +51,12 @@ const Navbar = () => {
             <Home />
           </Icon>
         </Link>
-        <Text>{user ? <LoginImage /> : <SignIn />}</Text>
+        <WrapperRight>
+          <Link to="/lists" style={{ textDecoration: "none" }}>
+            <Lists>Lists</Lists>
+          </Link>
+          <Text>{user ? <LoginImage /> : <SignIn />}</Text>
+        </WrapperRight>
       </Wrapper>
     </Container>
   );
