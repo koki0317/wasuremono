@@ -22,6 +22,10 @@ const List = styled.div`
 
 const ListTitle = styled.h3`
   color: #585858;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 240px;
 `;
 const Date = styled.span`
   background-color: #6c63ff;

@@ -53,7 +53,12 @@ const ListTitle = ({ addAnswer }) => {
     <Container>
       <Wrapper>
         <Title>Name the list title.</Title>
-        <Input ref={inputRef} placeholder="List name" onChange={handleChange} />
+        <Input
+          ref={inputRef}
+          maxlength="3"
+          placeholder="List name"
+          onChange={handleChange}
+        />
         <Link to="/create/question1">
           <ComponentButton
             content={"NEXT"}
