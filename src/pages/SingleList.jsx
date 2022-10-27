@@ -14,7 +14,8 @@ const Image = styled.img`
 `;
 
 const Title = styled.h1`
-  margin-top: 10px;
+  margin: 5px 0;
+  color: #585858;
 `;
 
 const Wrapper = styled.div`
@@ -24,7 +25,7 @@ const Wrapper = styled.div`
 const SingleItemWrapper = styled.div``;
 
 const TravelItemsWrapper = styled.div`
-  margin-top: 30px;
+  margin-top: 20px;
 `;
 
 const SingleList = () => {
@@ -49,7 +50,7 @@ const SingleList = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(travelItems);
+  const title = id.replace("-", " ");
 
   return (
     <Container>
@@ -57,7 +58,7 @@ const SingleList = () => {
         <Link to="/create/question3">
           <Image src="/images/undraw_To_do_list_re_9nt7.png" />
         </Link>
-        <Title>Travel items</Title>
+        <Title>{title}</Title>
         <ListForm setTravelItems={setTravelItems} />
         <TravelItemsWrapper>
           {travelItems.map((item, index) => (
