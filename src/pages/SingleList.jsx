@@ -16,6 +16,9 @@ const Image = styled.img`
 const Title = styled.h1`
   margin: 5px 0;
   color: #585858;
+  overflow-wrap: break-word;
+  width: 80%;
+  border: 1px solid magenta;
 `;
 
 const Wrapper = styled.div`
@@ -55,9 +58,7 @@ const SingleList = () => {
   return (
     <Container>
       <Wrapper>
-        <Link to="/create/question3">
-          <Image src="/images/undraw_To_do_list_re_9nt7.png" />
-        </Link>
+        <Image src="/images/undraw_To_do_list_re_9nt7.png" />
         <Title>{title}</Title>
         <ListForm setTravelItems={setTravelItems} />
         <TravelItemsWrapper>
