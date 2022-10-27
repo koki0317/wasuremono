@@ -58,7 +58,13 @@ const Question3 = ({ addAnswer, answer }) => {
             }}
           />
         </DelayLink>
-        <ComponentButton content={"No"} onClick={() => addAnswer("no")} />
+        <ComponentButton
+          content={"No"}
+          onClick={() => {
+            addAnswer("no");
+            addList();
+          }}
+        />
         <Link to="/create/question2">
           <ComponentButton
             content={"Back"}
