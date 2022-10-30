@@ -41,8 +41,8 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      delay: 1.5,
-      duration: 1.5,
+      delay: 0.5,
+      duration: 1,
     },
   },
   exit: {

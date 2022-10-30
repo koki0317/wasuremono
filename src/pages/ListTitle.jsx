@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import ComponentButton from "../components/Button";
+import { motion } from "framer-motion";
 
 const Container = styled.div`
   display: flex;
@@ -50,43 +51,54 @@ const ListTitle = ({ addAnswer }) => {
     inputRef.current.focus();
   }, []);
 
-  // useEffect(() => {
-  //   const box = [];
-  //   const func = async () => {
-  //     const items = await db.collection("travelItems").get();
-  //     items.docs.map((doc) => {
-  //       box.push(doc.id);
-  //     });
-  //   };
-  //   func();
-  //   console.log(box);
-  // }, []);
-
+  const containerVariants = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        delay: 0.5,
+        duration: 1,
+      },
+    },
+    exit: {
+      x: "-100vw",
+      transition: { ease: "easeInOut" },
+    },
+  };
   return (
-    <Container>
-      <Wrapper>
-        <Title>Name the list title.</Title>
-        <Input
-          ref={inputRef}
-          maxlength="18"
-          placeholder="List name"
-          onChange={handleChange}
-        />
-        <Link to="/create/question1">
-          <ComponentButton
-            content={"NEXT"}
-            onClick={() => handleClick()}
-            disabled={!inputText ? true : false}
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
+      <Container>
+        <Wrapper>
+          <Title>Name the list title.</Title>
+          <Input
+            ref={inputRef}
+            maxlength="18"
+            placeholder="List name"
+            onChange={handleChange}
           />
-        </Link>
-        <Link to="/create">
-          <ComponentButton
-            backgroundColor={"rgba(0, 0, 0, 0.7)"}
-            content={"Back"}
-          />
-        </Link>
-      </Wrapper>
-    </Container>
+          <Link to="/create/question1">
+            <ComponentButton
+              content={"NEXT"}
+              onClick={() => handleClick()}
+              disabled={!inputText ? true : false}
+            />
+          </Link>
+          <Link to="/create">
+            <ComponentButton
+              backgroundColor={"rgba(0, 0, 0, 0.7)"}
+              content={"Back"}
+            />
+          </Link>
+        </Wrapper>
+      </Container>
+    </motion.div>
   );
 };
 
