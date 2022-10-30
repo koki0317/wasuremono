@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import ComponentButton from "../components/Button";
+import { motion } from "framer-motion";
 
 const Container = styled.div`
   text-align: center;
@@ -33,26 +34,50 @@ const Title = styled.h1`
   font-weight: 800;
 `;
 
+const containerVariants = {
+  hidden: {
+    opacity: 0,
+    visible: {
+      opacity: 1,
+      transition: {
+        delay: 1.5,
+        duration: 1.5,
+      },
+      exit: {
+        x: "-100vw",
+        transition: { ease: "easeInOut" },
+      },
+    },
+  },
+};
+
 const CreateList = () => {
   return (
-    <Container>
-      <Wrapper>
-        <Title>
-          Create your list{" "}
-          <span style={{ color: "red", fontSize: "28px" }}>easily</span> by
-          answering a few questions!{" "}
-        </Title>
-        <Link to="/create/title">
-          <ComponentButton content={"CREATE"}></ComponentButton>
-        </Link>
-        <Link to="/lists">
-          <ComponentButton
-            content={"Back"}
-            backgroundColor={"rgba(0, 0, 0, 0.7)"}
-          ></ComponentButton>
-        </Link>
-      </Wrapper>
-    </Container>
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
+      <Container>
+        <Wrapper>
+          <Title>
+            Create your list{" "}
+            <span style={{ color: "red", fontSize: "28px" }}>easily</span> by
+            answering a few questions!{" "}
+          </Title>
+          <Link to="/create/title">
+            <ComponentButton content={"CREATE"}></ComponentButton>
+          </Link>
+          <Link to="/lists">
+            <ComponentButton
+              content={"Back"}
+              backgroundColor={"rgba(0, 0, 0, 0.7)"}
+            ></ComponentButton>
+          </Link>
+        </Wrapper>
+      </Container>
+    </motion.div>
   );
 };
 

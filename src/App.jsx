@@ -1,5 +1,5 @@
 import Top from "./pages/Top";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import List from "./pages/List";
 import Footer from "./components/Footer";
 import Lists from "./pages/Lists";
@@ -16,15 +16,18 @@ import { AnimatePresence } from "framer-motion";
 
 const App = () => {
   const [answer, setAnswer] = useState([]);
+
   const addAnswer = (choice) => {
     setAnswer([...answer, choice]);
   };
-  console.log(answer);
+
+  const location = useLocation();
+
   return (
-    <BrowserRouter>
+    <>
       <Navbar />
       <AnimatePresence>
-        <Routes>
+        <Routes location={location} key={location.key}>
           <Route path="/" element={<Top />} />
           <Route path="/list" element={<List />} />
           <Route path="/lists" element={<Lists />} />
@@ -50,7 +53,7 @@ const App = () => {
         </Routes>
       </AnimatePresence>
       <Footer />
-    </BrowserRouter>
+    </>
   );
 };
 
