@@ -1,5 +1,5 @@
 import Top from "./pages/Top";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import List from "./pages/List";
 import Footer from "./components/Footer";
 import Lists from "./pages/Lists";
