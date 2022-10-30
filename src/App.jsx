@@ -12,6 +12,7 @@ import SingleList from "./pages/SingleList";
 import ListTitle from "./pages/ListTitle";
 import Navbar from "./components/Navbar";
 import ErrorPage from "./pages/ErrorPage";
+import { AnimatePresence } from "framer-motion";
 
 const App = () => {
   const [answer, setAnswer] = useState([]);
@@ -22,30 +23,32 @@ const App = () => {
   return (
     <BrowserRouter>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Top />} />
-        <Route path="/list" element={<List />} />
-        <Route path="/lists" element={<Lists />} />
-        <Route path="/create" element={<CreateList />} />
-        <Route
-          path="/create/title"
-          element={<ListTitle addAnswer={addAnswer} />}
-        />
-        <Route
-          path="/create/question1"
-          element={<Question1 addAnswer={addAnswer} answer={answer} />}
-        />
-        <Route
-          path="/create/question2"
-          element={<Question2 addAnswer={addAnswer} answer={answer} />}
-        />
-        <Route
-          path="/create/question3"
-          element={<Question3 addAnswer={addAnswer} answer={answer} />}
-        />
-        <Route path="/lists/:id" element={<SingleList />} />
-        <Route path="*" element={<ErrorPage />} />
-      </Routes>
+      <AnimatePresence>
+        <Routes>
+          <Route path="/" element={<Top />} />
+          <Route path="/list" element={<List />} />
+          <Route path="/lists" element={<Lists />} />
+          <Route path="/create" element={<CreateList />} />
+          <Route
+            path="/create/title"
+            element={<ListTitle addAnswer={addAnswer} />}
+          />
+          <Route
+            path="/create/question1"
+            element={<Question1 addAnswer={addAnswer} answer={answer} />}
+          />
+          <Route
+            path="/create/question2"
+            element={<Question2 addAnswer={addAnswer} answer={answer} />}
+          />
+          <Route
+            path="/create/question3"
+            element={<Question3 addAnswer={addAnswer} answer={answer} />}
+          />
+          <Route path="/lists/:id" element={<SingleList />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+      </AnimatePresence>
       <Footer />
     </BrowserRouter>
   );
