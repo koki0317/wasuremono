@@ -26,11 +26,23 @@ const Wrapper = styled.div`
 `;
 
 const Question3 = ({ addAnswer, answer }) => {
-  const baseList = ["Travel guide", "snacks and drinks", "Phone charger"];
+  const baseList = ["Travel guide", "snacks and drinks", "Clothes"];
 
   const deleteItem = () => {
     answer.pop();
   };
+
+  const addExtraItems = () => {
+    if (answer[1] === "International") {
+      baseList.unshift(
+        "Passport",
+        "Flight ticket",
+        "VISA",
+        "International phone charger"
+      );
+    }
+  };
+  console.log(answer);
 
   const path = answer[0].replace(" ", "-");
 
@@ -54,6 +66,7 @@ const Question3 = ({ addAnswer, answer }) => {
             content={"Yes"}
             onClick={() => {
               addAnswer("yes");
+              addExtraItems();
               addList();
             }}
           />
@@ -62,6 +75,7 @@ const Question3 = ({ addAnswer, answer }) => {
           content={"No"}
           onClick={() => {
             addAnswer("no");
+            addExtraItems();
             addList();
           }}
         />
