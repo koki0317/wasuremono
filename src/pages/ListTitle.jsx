@@ -88,6 +88,7 @@ const ListTitle = ({ addAnswer }) => {
               content={"NEXT"}
               onClick={() => handleClick()}
               disabled={!inputText ? true : false}
+              backgroundColor={!inputText ? "#cccccc" : ""}
             />
           </Link>
           <Link to="/create">
