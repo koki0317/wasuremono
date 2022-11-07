@@ -92,6 +92,7 @@ const Question2 = ({ addAnswer, answer }) => {
               onClick={() => handleClick()}
               disabled={!input ? true : false}
               content={"NEXT"}
+              backgroundColor={!input ? "#cccccc" : ""}
             >
               NEXT
             </ComponentButton>
