@@ -41,6 +41,10 @@ const Question3 = ({ addAnswer, answer }) => {
         "International phone charger"
       );
     }
+
+    if (answer[3] === "yes") {
+      baseList.unshift("Medicine");
+    }
   };
   console.log(answer);
 
@@ -56,6 +60,12 @@ const Question3 = ({ addAnswer, answer }) => {
     });
   };
 
+  const addItems = (ans) => {
+    addAnswer(ans);
+    addExtraItems();
+    addList();
+  };
+
   return (
     <Container>
       <Wrapper>
@@ -65,18 +75,14 @@ const Question3 = ({ addAnswer, answer }) => {
           <ComponentButton
             content={"Yes"}
             onClick={() => {
-              addAnswer("yes");
-              addExtraItems();
-              addList();
+              addItems("yes");
             }}
           />
         </DelayLink>
         <ComponentButton
           content={"No"}
           onClick={() => {
-            addAnswer("no");
-            addExtraItems();
-            addList();
+            addItems("no");
           }}
         />
         <Link to="/create/question2">
