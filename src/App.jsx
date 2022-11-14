@@ -6,16 +6,23 @@ import Lists from "./pages/Lists";
 import CreateList from "./pages/CreateList";
 import Question1 from "./pages/questions/Question1";
 import Question2 from "./pages/questions/Question2";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Question3 from "./pages/questions/Question3";
 import SingleList from "./pages/SingleList";
 import ListTitle from "./pages/ListTitle";
 import Navbar from "./components/Navbar";
 import ErrorPage from "./pages/ErrorPage";
 import { AnimatePresence } from "framer-motion";
+import Login from "./pages/Login";
+// import { PacmanLoader } from "react-spinners";
 
 const App = () => {
   const [answer, setAnswer] = useState([]);
+  // const [isLoading, setIsLoading] = useState(false);
+
+  // useEffect(() => {
+  //   setIsLoading(true);
+  // }, []);
 
   const addAnswer = (choice) => {
     setAnswer([...answer, choice]);
@@ -49,6 +56,7 @@ const App = () => {
             element={<Question3 addAnswer={addAnswer} answer={answer} />}
           />
           <Route path="/lists/:id" element={<SingleList />} />
+          <Route path="/login" element={<Login />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </AnimatePresence>

@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import ComponentButton from "../components/Button";
 import { motion } from "framer-motion";
+import { collection, doc, getDocs, query, setDoc } from "firebase/firestore";
+import { db } from "../firebase";
 
 const Container = styled.div`
   display: flex;
