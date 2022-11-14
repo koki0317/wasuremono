@@ -66,9 +66,8 @@ const ListInLists = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const deleteList = (item) => {
-    console.log(item);
-    deleteDoc(doc(db, "travelItems", item.id));
+  const deleteList = async (item) => {
+    await deleteDoc(doc(db, "travelItems", item.id));
   };
 
   return (
