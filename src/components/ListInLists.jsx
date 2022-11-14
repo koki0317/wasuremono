@@ -1,3 +1,4 @@
+import { DeleteOutline } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -25,13 +26,23 @@ const ListTitle = styled.h3`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 240px;
+  width: 200px;
 `;
 const Date = styled.span`
   background-color: #6c63ff;
   color: white;
   font-weight: 700;
   padding: 5px;
+`;
+
+const Circle = styled.div`
+  background-color: #ff5154;
+  height: 34px;
+  width: 34px;
+`;
+
+const WrapperRight = styled.div`
+  display: flex;
 `;
 
 const ListInLists = () => {
@@ -67,7 +78,12 @@ const ListInLists = () => {
             >
               <ListTitle>{item.id}</ListTitle>
             </Link>
-            <Date>{item.createdAt.toDate().toLocaleDateString()}</Date>
+            <WrapperRight>
+              <Date>{item.createdAt.toDate().toLocaleDateString()}</Date>
+              <Circle>
+                <DeleteOutline style={{ color: "white", padding: "5px" }} />
+              </Circle>
+            </WrapperRight>
           </List>
         </ListWrapper>
       ))}
