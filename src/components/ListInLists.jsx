@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { db } from "../firebase";
+import { doc, deleteDoc } from "firebase/firestore";
 
 const Container = styled.div``;
 
@@ -65,6 +66,11 @@ const ListInLists = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const deleteList = (item) => {
+    console.log(item);
+    deleteDoc(doc(db, "travelItems", item.id));
+  };
+
   return (
     <Container>
       {travelItems.map((item, index) => (
@@ -80,7 +86,11 @@ const ListInLists = () => {
             </Link>
             <WrapperRight>
               <Date>{item.createdAt.toDate().toLocaleDateString()}</Date>
-              <Circle>
+              <Circle
+                onClick={() => {
+                  deleteList(item);
+                }}
+              >
                 <DeleteOutline style={{ color: "white", padding: "5px" }} />
               </Circle>
             </WrapperRight>

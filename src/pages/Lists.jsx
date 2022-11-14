@@ -49,7 +49,6 @@ const Lists = () => {
         </Link>
         <Image src="undraw_Note_list_re_r4u9.png" />
       </TitleWrapper>
-
       <ListInLists />
     </Container>
   );
