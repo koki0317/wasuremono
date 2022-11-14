@@ -10,7 +10,7 @@ const Container = styled.footer`
 `;
 
 const Title = styled.h3`
-  padding: 5px 0;
+  padding: 6px 0;
   color: white;
 `;
 

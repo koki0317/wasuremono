@@ -66,6 +66,8 @@ const Question3 = ({ addAnswer, answer }) => {
     addList();
   };
 
+  
+
   return (
     <Container>
       <Wrapper>

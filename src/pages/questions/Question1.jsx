@@ -44,6 +44,7 @@ const Question1 = ({ addAnswer, answer }) => {
   const deleteItem = () => {
     answer.pop();
   };
+
   return (
     <motion.div
       variants={containerVariants}
